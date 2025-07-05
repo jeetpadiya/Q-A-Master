@@ -1,0 +1,57 @@
+[
+  {
+    "id": "Q001",
+    "question": "What does the `useEffect` hook in React do?",
+    "options": [
+      "It updates the DOM directly",
+      "It handles routing between pages",
+      "It performs side effects in function components",
+      "It creates reusable components"
+    ],
+    "correctAnswer": "It performs side effects in function components"
+  },
+  {
+    "id": "Q002",
+    "question": "What is the purpose of `bcrypt` in a Node.js backend?",
+    "options": [
+      "To connect to a database",
+      "To hash passwords securely",
+      "To validate user input",
+      "To serve static files"
+    ],
+    "correctAnswer": "To hash passwords securely"
+  },
+  {
+    "id": "Q003",
+    "question": "How do you resolve an `ECONNREFUSED` error when connecting to MongoDB?",
+    "options": [
+      "Restart the React app",
+      "Clear browser cache",
+      "Ensure MongoDB is running and the URI is correct",
+      "Update Node.js version"
+    ],
+    "correctAnswer": "Ensure MongoDB is running and the URI is correct"
+  },
+  {
+    "id": "Q004",
+    "question": "What is the difference between `props` and `state` in React?",
+    "options": [
+      "`Props` are mutable, `state` is immutable",
+      "`Props` are managed internally, `state` is passed from parent",
+      "`Props` are passed from parent, `state` is managed within the component",
+      "`Props` can only be used in class components"
+    ],
+    "correctAnswer": "`Props` are passed from parent, `state` is managed within the component"
+  },
+  {
+    "id": "Q005",
+    "question": "What does `concurrently` do in a MERN stack project?",
+    "options": [
+      "It compiles TypeScript files",
+      "It runs multiple npm scripts at the same time",
+      "It manages MongoDB collections",
+      "It deploys the app to GitHub Pages"
+    ],
+    "correctAnswer": "It runs multiple npm scripts at the same time"
+  }
+]
