@@ -6,7 +6,8 @@ const app = express();
 const PORT=3000
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({ origin: 'https://q-a-master.vercel.app/' }));
+
 
 app.get('/api/questions',(req,res)=>{
     fs.readFile("./questions.json",'utf-8',(err,data)=>{
