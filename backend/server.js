@@ -19,6 +19,6 @@ app.get('/api/questions',(req,res)=>{
     })
 })
 
-// app.listen(PORT,()=>{
-//     console.log(`Server is Running ${PORT}`);
-// })
+app.listen(PORT,()=>{
+    console.log(`Server is Running ${PORT}`);
+})
