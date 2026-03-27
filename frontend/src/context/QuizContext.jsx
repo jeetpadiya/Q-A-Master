@@ -12,7 +12,9 @@ const QuizContextProvider = ({ children }) => {
   const [isQuizEnd, setIsQuizEnd]       = useState(false);
   const [userAnswers, setUserAnswers]   = useState([]);
 
-  const backendUrl = "http://localhost:3000";
+  const backendUrl =
+    import.meta.env.VITE_API_BASE_URL ||
+    (window.location.hostname === "localhost" ? "http://localhost:3000" : "");
 
   // 1. Fetch questions once
   useEffect(() => {
