@@ -1,57 +1,722 @@
 [
   {
-    "id": "Q001",
-    "question": "What does the `useEffect` hook in React do?",
+    "id": "REACT_001",
+    "category": "React",
+    "question": "What is the main purpose of the `useEffect` hook in React?",
     "options": [
-      "It updates the DOM directly",
-      "It handles routing between pages",
-      "It performs side effects in function components",
-      "It creates reusable components"
+      "To perform side effects after render",
+      "To create routes inside a component",
+      "To style components with CSS",
+      "To mutate props directly"
     ],
-    "correctAnswer": "It performs side effects in function components"
+    "correctAnswer": "To perform side effects after render"
   },
   {
-    "id": "Q002",
-    "question": "What is the purpose of `bcrypt` in a Node.js backend?",
+    "id": "REACT_002",
+    "category": "React",
+    "question": "Which statement about props in React is correct?",
     "options": [
-      "To connect to a database",
-      "To hash passwords securely",
-      "To validate user input",
-      "To serve static files"
+      "Props are used to mutate parent state directly",
+      "Props are read-only values passed into a component",
+      "Props can only be used in class components",
+      "Props automatically persist in local storage"
     ],
-    "correctAnswer": "To hash passwords securely"
+    "correctAnswer": "Props are read-only values passed into a component"
   },
   {
-    "id": "Q003",
-    "question": "How do you resolve an `ECONNREFUSED` error when connecting to MongoDB?",
+    "id": "REACT_003",
+    "category": "React",
+    "question": "Which hook is commonly used to store local component state?",
     "options": [
-      "Restart the React app",
-      "Clear browser cache",
-      "Ensure MongoDB is running and the URI is correct",
-      "Update Node.js version"
+      "useRoute",
+      "useState",
+      "useFetch",
+      "useMemoState"
     ],
-    "correctAnswer": "Ensure MongoDB is running and the URI is correct"
+    "correctAnswer": "useState"
   },
   {
-    "id": "Q004",
-    "question": "What is the difference between `props` and `state` in React?",
+    "id": "REACT_004",
+    "category": "React",
+    "question": "What must a React component return to render UI?",
     "options": [
-      "`Props` are mutable, `state` is immutable",
-      "`Props` are managed internally, `state` is passed from parent",
-      "`Props` are passed from parent, `state` is managed within the component",
-      "`Props` can only be used in class components"
+      "A database connection",
+      "JSX or `null`",
+      "A CSS file",
+      "A promise only"
     ],
-    "correctAnswer": "`Props` are passed from parent, `state` is managed within the component"
+    "correctAnswer": "JSX or `null`"
   },
   {
-    "id": "Q005",
-    "question": "What does `concurrently` do in a MERN stack project?",
+    "id": "REACT_005",
+    "category": "React",
+    "question": "Why are `key` props important when rendering lists in React?",
     "options": [
-      "It compiles TypeScript files",
-      "It runs multiple npm scripts at the same time",
-      "It manages MongoDB collections",
-      "It deploys the app to GitHub Pages"
+      "They encrypt component data",
+      "They help React identify changed list items",
+      "They are required for CSS styling",
+      "They make API requests faster"
     ],
-    "correctAnswer": "It runs multiple npm scripts at the same time"
+    "correctAnswer": "They help React identify changed list items"
+  },
+  {
+    "id": "REACT_006",
+    "category": "React",
+    "question": "What does lifting state up mean in React?",
+    "options": [
+      "Moving state to a common parent component",
+      "Saving state in local storage",
+      "Converting state into props automatically",
+      "Removing state from the app"
+    ],
+    "correctAnswer": "Moving state to a common parent component"
+  },
+  {
+    "id": "REACT_007",
+    "category": "React",
+    "question": "Which hook gives access to shared context values?",
+    "options": [
+      "useReducer",
+      "useEffect",
+      "useContext",
+      "useRef"
+    ],
+    "correctAnswer": "useContext"
+  },
+  {
+    "id": "REACT_008",
+    "category": "React",
+    "question": "What is JSX?",
+    "options": [
+      "A database query language",
+      "A syntax extension that looks like HTML in JavaScript",
+      "A replacement for CSS",
+      "A Node.js package manager"
+    ],
+    "correctAnswer": "A syntax extension that looks like HTML in JavaScript"
+  },
+  {
+    "id": "REACT_009",
+    "category": "React",
+    "question": "Which hook is commonly used to reference a DOM element directly?",
+    "options": [
+      "useRef",
+      "useDom",
+      "useContext",
+      "useStore"
+    ],
+    "correctAnswer": "useRef"
+  },
+  {
+    "id": "REACT_010",
+    "category": "React",
+    "question": "What is a common reason to split UI into smaller React components?",
+    "options": [
+      "To make CSS stop working",
+      "To improve reuse and readability",
+      "To avoid using props",
+      "To replace routing"
+    ],
+    "correctAnswer": "To improve reuse and readability"
+  },
+  {
+    "id": "JS_001",
+    "category": "JavaScript",
+    "question": "Which array method creates a new array with transformed values?",
+    "options": [
+      "map",
+      "find",
+      "some",
+      "includes"
+    ],
+    "correctAnswer": "map"
+  },
+  {
+    "id": "JS_002",
+    "category": "JavaScript",
+    "question": "What does `===` do in JavaScript?",
+    "options": [
+      "Assigns a value to a variable",
+      "Compares value only",
+      "Compares both value and type",
+      "Checks if a variable exists"
+    ],
+    "correctAnswer": "Compares both value and type"
+  },
+  {
+    "id": "JS_003",
+    "category": "JavaScript",
+    "question": "Which keyword declares a block-scoped variable?",
+    "options": [
+      "var only",
+      "let",
+      "scope",
+      "define"
+    ],
+    "correctAnswer": "let"
+  },
+  {
+    "id": "JS_004",
+    "category": "JavaScript",
+    "question": "What is the result of `typeof []` in JavaScript?",
+    "options": [
+      "array",
+      "object",
+      "list",
+      "undefined"
+    ],
+    "correctAnswer": "object"
+  },
+  {
+    "id": "JS_005",
+    "category": "JavaScript",
+    "question": "Which function converts a JSON string into a JavaScript object?",
+    "options": [
+      "JSON.make",
+      "JSON.parse",
+      "JSON.stringify",
+      "JSON.convert"
+    ],
+    "correctAnswer": "JSON.parse"
+  },
+  {
+    "id": "JS_006",
+    "category": "JavaScript",
+    "question": "What does `setTimeout` do?",
+    "options": [
+      "Runs a function after a delay",
+      "Stops all browser events",
+      "Repeats a function forever",
+      "Stores time in local storage"
+    ],
+    "correctAnswer": "Runs a function after a delay"
+  },
+  {
+    "id": "JS_007",
+    "category": "JavaScript",
+    "question": "Which method adds an item to the end of an array?",
+    "options": [
+      "shift",
+      "unshift",
+      "push",
+      "slice"
+    ],
+    "correctAnswer": "push"
+  },
+  {
+    "id": "JS_008",
+    "category": "JavaScript",
+    "question": "What does `filter()` return?",
+    "options": [
+      "The first matching item only",
+      "A new array of matching items",
+      "A boolean only",
+      "The original array reversed"
+    ],
+    "correctAnswer": "A new array of matching items"
+  },
+  {
+    "id": "JS_009",
+    "category": "JavaScript",
+    "question": "Which value is falsy in JavaScript?",
+    "options": [
+      "\"hello\"",
+      "[]",
+      "0",
+      "{}"
+    ],
+    "correctAnswer": "0"
+  },
+  {
+    "id": "JS_010",
+    "category": "JavaScript",
+    "question": "What is an arrow function?",
+    "options": [
+      "A shorter syntax for writing functions",
+      "A way to create HTML elements",
+      "A built-in loop",
+      "A CSS selector"
+    ],
+    "correctAnswer": "A shorter syntax for writing functions"
+  },
+  {
+    "id": "PY_001",
+    "category": "Python",
+    "question": "Which keyword is used to define a function in Python?",
+    "options": [
+      "func",
+      "def",
+      "function",
+      "lambda"
+    ],
+    "correctAnswer": "def"
+  },
+  {
+    "id": "PY_002",
+    "category": "Python",
+    "question": "What data type is returned by `range(5)` in modern Python?",
+    "options": [
+      "list",
+      "tuple",
+      "range object",
+      "set"
+    ],
+    "correctAnswer": "range object"
+  },
+  {
+    "id": "PY_003",
+    "category": "Python",
+    "question": "Which symbol starts a comment in Python?",
+    "options": [
+      "//",
+      "#",
+      "<!--",
+      "/*"
+    ],
+    "correctAnswer": "#"
+  },
+  {
+    "id": "PY_004",
+    "category": "Python",
+    "question": "Which data type stores key-value pairs in Python?",
+    "options": [
+      "list",
+      "set",
+      "tuple",
+      "dictionary"
+    ],
+    "correctAnswer": "dictionary"
+  },
+  {
+    "id": "PY_005",
+    "category": "Python",
+    "question": "What does `len()` return?",
+    "options": [
+      "The data type of a value",
+      "The length of an object",
+      "The last item in a list",
+      "A lowercase version of a string"
+    ],
+    "correctAnswer": "The length of an object"
+  },
+  {
+    "id": "PY_006",
+    "category": "Python",
+    "question": "Which keyword is used for a loop over a sequence?",
+    "options": [
+      "foreach",
+      "for",
+      "loop",
+      "iterate"
+    ],
+    "correctAnswer": "for"
+  },
+  {
+    "id": "PY_007",
+    "category": "Python",
+    "question": "What is the output type of `input()`?",
+    "options": [
+      "int",
+      "boolean",
+      "string",
+      "float"
+    ],
+    "correctAnswer": "string"
+  },
+  {
+    "id": "PY_008",
+    "category": "Python",
+    "question": "Which keyword is used to handle exceptions?",
+    "options": [
+      "catch",
+      "rescue",
+      "try",
+      "error"
+    ],
+    "correctAnswer": "try"
+  },
+  {
+    "id": "PY_009",
+    "category": "Python",
+    "question": "What does `append()` do on a Python list?",
+    "options": [
+      "Sorts the list",
+      "Adds an item to the end",
+      "Removes the first item",
+      "Converts the list to a tuple"
+    ],
+    "correctAnswer": "Adds an item to the end"
+  },
+  {
+    "id": "PY_010",
+    "category": "Python",
+    "question": "Which value represents nothing in Python?",
+    "options": [
+      "null",
+      "void",
+      "None",
+      "empty"
+    ],
+    "correctAnswer": "None"
+  },
+  {
+    "id": "MERN_001",
+    "category": "MERN Stack",
+    "question": "What does the `M` in MERN stand for?",
+    "options": [
+      "MySQL",
+      "MongoDB",
+      "Middleware",
+      "Module"
+    ],
+    "correctAnswer": "MongoDB"
+  },
+  {
+    "id": "MERN_002",
+    "category": "MERN Stack",
+    "question": "Why is Express commonly used in the MERN stack?",
+    "options": [
+      "To build the database schema visually",
+      "To handle server-side routing and APIs",
+      "To compile JSX into JavaScript",
+      "To replace MongoDB queries automatically"
+    ],
+    "correctAnswer": "To handle server-side routing and APIs"
+  },
+  {
+    "id": "MERN_003",
+    "category": "MERN Stack",
+    "question": "Which part of the MERN stack is typically used for the frontend UI?",
+    "options": [
+      "MongoDB",
+      "Express",
+      "React",
+      "Node.js"
+    ],
+    "correctAnswer": "React"
+  },
+  {
+    "id": "MERN_004",
+    "category": "MERN Stack",
+    "question": "What role does Node.js usually play in a MERN project?",
+    "options": [
+      "Database design tool",
+      "Runtime for the backend server",
+      "CSS preprocessor",
+      "Browser testing library"
+    ],
+    "correctAnswer": "Runtime for the backend server"
+  },
+  {
+    "id": "MERN_005",
+    "category": "MERN Stack",
+    "question": "What is Mongoose commonly used for in MERN apps?",
+    "options": [
+      "Managing MongoDB data models",
+      "Building React layouts",
+      "Styling Express routes",
+      "Bundling frontend assets"
+    ],
+    "correctAnswer": "Managing MongoDB data models"
+  },
+  {
+    "id": "MERN_006",
+    "category": "MERN Stack",
+    "question": "Why are REST APIs common in MERN applications?",
+    "options": [
+      "They allow frontend and backend communication",
+      "They replace JavaScript in the browser",
+      "They automatically host the app",
+      "They style components with classes"
+    ],
+    "correctAnswer": "They allow frontend and backend communication"
+  },
+  {
+    "id": "MERN_007",
+    "category": "MERN Stack",
+    "question": "Which command is commonly used to install npm packages?",
+    "options": [
+      "npm add",
+      "npm install",
+      "node package",
+      "express install"
+    ],
+    "correctAnswer": "npm install"
+  },
+  {
+    "id": "MERN_008",
+    "category": "MERN Stack",
+    "question": "What does CORS help with in a MERN app?",
+    "options": [
+      "Cross-origin request control between frontend and backend",
+      "Compressing MongoDB collections",
+      "Compiling JSX files",
+      "Generating JWT secrets"
+    ],
+    "correctAnswer": "Cross-origin request control between frontend and backend"
+  },
+  {
+    "id": "MERN_009",
+    "category": "MERN Stack",
+    "question": "Why are environment variables useful in MERN projects?",
+    "options": [
+      "They let you hide config values like database URIs",
+      "They replace route handlers",
+      "They build CSS automatically",
+      "They remove the need for authentication"
+    ],
+    "correctAnswer": "They let you hide config values like database URIs"
+  },
+  {
+    "id": "MERN_010",
+    "category": "MERN Stack",
+    "question": "What is JWT commonly used for in a MERN authentication flow?",
+    "options": [
+      "Hashing CSS files",
+      "Creating authentication tokens",
+      "Generating database tables",
+      "Rendering React components"
+    ],
+    "correctAnswer": "Creating authentication tokens"
+  },
+  {
+    "id": "CSS_001",
+    "category": "CSS",
+    "question": "Which CSS property controls the space outside an element's border?",
+    "options": [
+      "padding",
+      "margin",
+      "gap",
+      "border-spacing"
+    ],
+    "correctAnswer": "margin"
+  },
+  {
+    "id": "CSS_002",
+    "category": "CSS",
+    "question": "What does `display: flex` enable?",
+    "options": [
+      "Database connectivity",
+      "Flexible layout alignment",
+      "Automatic image compression",
+      "JavaScript event handling"
+    ],
+    "correctAnswer": "Flexible layout alignment"
+  },
+  {
+    "id": "CSS_003",
+    "category": "CSS",
+    "question": "Which property changes text color?",
+    "options": [
+      "font-style",
+      "background-color",
+      "color",
+      "text-shadow"
+    ],
+    "correctAnswer": "color"
+  },
+  {
+    "id": "CSS_004",
+    "category": "CSS",
+    "question": "Which property is used to round element corners?",
+    "options": [
+      "corner-radius",
+      "border-radius",
+      "radius-size",
+      "curve"
+    ],
+    "correctAnswer": "border-radius"
+  },
+  {
+    "id": "CSS_005",
+    "category": "CSS",
+    "question": "What does `position: absolute` do?",
+    "options": [
+      "Positions an element relative to its nearest positioned ancestor",
+      "Pins an element to the browser always",
+      "Makes the element flex automatically",
+      "Hides the element from the DOM"
+    ],
+    "correctAnswer": "Positions an element relative to its nearest positioned ancestor"
+  },
+  {
+    "id": "CSS_006",
+    "category": "CSS",
+    "question": "Which unit is relative to the root font size?",
+    "options": [
+      "px",
+      "em",
+      "rem",
+      "%"
+    ],
+    "correctAnswer": "rem"
+  },
+  {
+    "id": "CSS_007",
+    "category": "CSS",
+    "question": "What does `z-index` control?",
+    "options": [
+      "Text size",
+      "Stacking order of overlapping elements",
+      "Horizontal spacing",
+      "Animation duration"
+    ],
+    "correctAnswer": "Stacking order of overlapping elements"
+  },
+  {
+    "id": "CSS_008",
+    "category": "CSS",
+    "question": "Which property is used to change the background color of an element?",
+    "options": [
+      "background-color",
+      "color-fill",
+      "element-color",
+      "fill"
+    ],
+    "correctAnswer": "background-color"
+  },
+  {
+    "id": "CSS_009",
+    "category": "CSS",
+    "question": "What does `justify-content` do in a flex container?",
+    "options": [
+      "Controls alignment along the main axis",
+      "Changes font weight",
+      "Rounds corners",
+      "Adds a shadow"
+    ],
+    "correctAnswer": "Controls alignment along the main axis"
+  },
+  {
+    "id": "CSS_010",
+    "category": "CSS",
+    "question": "Which selector targets an element with class `card`?",
+    "options": [
+      "#card",
+      ".card",
+      "card[]",
+      "*card"
+    ],
+    "correctAnswer": ".card"
+  },
+  {
+    "id": "TAILWIND_001",
+    "category": "Tailwind CSS",
+    "question": "What is Tailwind CSS mainly known for?",
+    "options": [
+      "A utility-first approach to styling",
+      "A replacement for JavaScript frameworks",
+      "A backend API toolkit",
+      "A browser-only database"
+    ],
+    "correctAnswer": "A utility-first approach to styling"
+  },
+  {
+    "id": "TAILWIND_002",
+    "category": "Tailwind CSS",
+    "question": "Which Tailwind class adds horizontal padding?",
+    "options": [
+      "py-4",
+      "mx-4",
+      "px-4",
+      "pt-4"
+    ],
+    "correctAnswer": "px-4"
+  },
+  {
+    "id": "TAILWIND_003",
+    "category": "Tailwind CSS",
+    "question": "Which class makes text bold?",
+    "options": [
+      "font-bold",
+      "text-bold",
+      "weight-700",
+      "bold-text"
+    ],
+    "correctAnswer": "font-bold"
+  },
+  {
+    "id": "TAILWIND_004",
+    "category": "Tailwind CSS",
+    "question": "Which class centers items in a flex container vertically?",
+    "options": [
+      "justify-center",
+      "items-center",
+      "content-center",
+      "self-center"
+    ],
+    "correctAnswer": "items-center"
+  },
+  {
+    "id": "TAILWIND_005",
+    "category": "Tailwind CSS",
+    "question": "Which class applies a large border radius?",
+    "options": [
+      "rounded-lg",
+      "radius-lg",
+      "border-round",
+      "curve-lg"
+    ],
+    "correctAnswer": "rounded-lg"
+  },
+  {
+    "id": "TAILWIND_006",
+    "category": "Tailwind CSS",
+    "question": "How do responsive prefixes like `md:` work in Tailwind CSS?",
+    "options": [
+      "They apply styles at a specific breakpoint and above",
+      "They only work in dark mode",
+      "They fetch styles from a CDN",
+      "They disable mobile styles"
+    ],
+    "correctAnswer": "They apply styles at a specific breakpoint and above"
+  },
+  {
+    "id": "TAILWIND_007",
+    "category": "Tailwind CSS",
+    "question": "Which class creates a flex container?",
+    "options": [
+      "grid",
+      "inline",
+      "flex",
+      "block"
+    ],
+    "correctAnswer": "flex"
+  },
+  {
+    "id": "TAILWIND_008",
+    "category": "Tailwind CSS",
+    "question": "Which class would typically set white text color?",
+    "options": [
+      "text-light",
+      "text-white",
+      "font-white",
+      "color-white"
+    ],
+    "correctAnswer": "text-white"
+  },
+  {
+    "id": "TAILWIND_009",
+    "category": "Tailwind CSS",
+    "question": "What does `gap-4` usually control?",
+    "options": [
+      "Spacing between grid or flex children",
+      "Font size",
+      "Opacity",
+      "Border thickness"
+    ],
+    "correctAnswer": "Spacing between grid or flex children"
+  },
+  {
+    "id": "TAILWIND_010",
+    "category": "Tailwind CSS",
+    "question": "Which class hides an element?",
+    "options": [
+      "invisible",
+      "hide",
+      "none",
+      "hidden"
+    ],
+    "correctAnswer": "hidden"
   }
 ]

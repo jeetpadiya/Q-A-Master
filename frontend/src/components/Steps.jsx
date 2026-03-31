@@ -3,19 +3,19 @@ import React from 'react'
 const stepsData = [
   {
     step: 'step1',
-    title: 'Read the Questions Carefully',
+    title: 'Choose a track like React, JavaScript, Python, MERN, CSS, or Tailwind CSS',
   },
   {
     step: 'step2',
-    title: 'Select the Correct Answer from the Options Provided',
+    title: 'Read the questions carefully and select the correct answer',
   },
   {
     step: 'step3',
-    title: 'Submit Your Answer Before the Time Runs Out',
+    title: 'Submit your answer before the time runs out',
   },
   {
     step: 'step4',
-    title: 'Repeat for All Questions in the Quiz',
+    title: 'Review your score and switch tracks anytime for a new quiz',
   },
 ]
 

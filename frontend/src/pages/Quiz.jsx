@@ -1,9 +1,12 @@
 import React, { useContext, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { QuizContext } from '../context/QuizContext'
 
 const Quiz = () => {
+  const navigate = useNavigate()
   const {
     questions,
+    selectedCategory,
     currentQuestion,
     score,
     timer,
@@ -22,7 +25,7 @@ const Quiz = () => {
 
   // loading state
   if (!questions || questions.length === 0) {
-    return <p className="text-center text-xl">Loading…</p>
+    return <p className="text-center text-xl">Loading {selectedCategory} questions...</p>
   }
 
   // quiz end / review
@@ -33,6 +36,28 @@ const Quiz = () => {
         <p className="text-2xl mb-6">
           Your Score: {score} / {questions.length}
         </p>
+        <p className="mb-6 text-lg text-cyan-300">
+          Track: {selectedCategory}
+        </p>
+        {score === questions.length ? (
+          <div className="mb-6 rounded-2xl border border-emerald-400/40 bg-emerald-500/10 px-5 py-4 text-center">
+            <p className="text-lg font-semibold text-emerald-300">
+              Certificate unlocked for {selectedCategory}.
+            </p>
+            <button
+              onClick={() => navigate('/dashboard')}
+              className="mt-4 rounded-full bg-emerald-400 px-5 py-2 font-semibold text-slate-950 transition hover:bg-emerald-300"
+            >
+              View In Dashboard
+            </button>
+          </div>
+        ) : (
+          <div className="mb-6 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-center">
+            <p className="text-base text-slate-300">
+              Score full marks to unlock your {selectedCategory} certificate.
+            </p>
+          </div>
+        )}
         <button
           onClick={handleRestartQuiz}
           className="bg-indigo-500 hover:bg-indigo-600 text-white py-3 px-8 rounded-lg mb-8 transform hover:scale-105 transition"
@@ -80,7 +105,7 @@ const Quiz = () => {
           Total Questions: {questions.length}
         </p>
         <p className="text-lg font-bold">
-          Current Question: {currentQuestion + 1}
+          {selectedCategory} Question: {currentQuestion + 1}
         </p>
       </div>
 

@@ -3,10 +3,13 @@ import { useNavigate } from 'react-router-dom'
 import question from '../assets/question.png'
 import Modal from './Modal'
 import Steps from './Steps'
+import { useContext } from 'react'
+import { QuizContext } from '../context/QuizContext'
 
 const Header = () => {
   const navigate = useNavigate()
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const { categories, selectedCategory, handleCategoryChange } = useContext(QuizContext)
 
   const openModal = () => setIsModalOpen(true)
   const closeModal = () => setIsModalOpen(false)
@@ -25,12 +28,32 @@ const Header = () => {
           <p className="mt-4 mb-4 text md:text-3xl lg:text-4xl font-thin text-white">
             Challenge Your Coding Knowledge!
           </p>
+          <div className="mt-2 mb-6">
+            <p className="mb-4 text-sm uppercase tracking-[0.3em] text-cyan-200">
+              Choose Your Quiz Track
+            </p>
+            <div className="flex flex-wrap justify-center lg:justify-start gap-3">
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  onClick={() => handleCategoryChange(category)}
+                  className={`rounded-full border px-4 py-2 text-sm font-semibold transition ${
+                    selectedCategory === category
+                      ? 'border-cyan-300 bg-cyan-300 text-slate-950'
+                      : 'border-white/30 bg-white/5 text-white hover:border-cyan-300'
+                  }`}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
+          </div>
           <div className="flex justify-center lg:justify-start items-center">
             <button
               onClick={openModal}
               className="border bg-white text-black border-black px-6 py-3 rounded-lg mt-4 mb-6"
             >
-              Start Quiz
+              Start {selectedCategory} Quiz
             </button>
           </div>
           <div className="flex flex-col">
@@ -56,7 +79,7 @@ const Header = () => {
       <Steps />
 
       {isModalOpen && (
-        <Modal closeModal={closeModal} startQuiz={startQuiz} />
+        <Modal closeModal={closeModal} startQuiz={startQuiz} selectedCategory={selectedCategory} />
       )}
     </>
   )

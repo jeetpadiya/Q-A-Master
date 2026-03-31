@@ -1,12 +1,15 @@
 import React from 'react'
 
-const Modal = ({ closeModal, startQuiz }) => {
+const Modal = ({ closeModal, startQuiz, selectedCategory }) => {
   return (
     <div className='fixed inset-0 flex items-center justify-center bg=[#0c0620] bg-opacity-90 z-50'>
       <div className="bg-gradient-to-r from-[#13072e] to-[#3f2182] =-6 sm:p-8 md:p-10 rounded-lg w-full max-w-md sm:max-w-lg md:max-w-2xl mx-4">
         <h2 className='text=xl sm:text-2xl md:text-3x; font-bold mb-4 text-center'>
           Quzi Instruction
         </h2>
+        <p className='mb-4 text-center text-sm uppercase tracking-[0.25em] text-cyan-300'>
+          Selected Track: {selectedCategory}
+        </p>
         <ul className='list-decimal pl-4 sm:pl-6 text-sm sm:text-base md:text-lg space-y-2'>
           <li>Read each question carefully before selecting your answer.</li>
           <li>You must complete the quiz within the allotted time.</li>
@@ -24,7 +27,7 @@ const Modal = ({ closeModal, startQuiz }) => {
             Cancel
           </button>
           <button onClick={startQuiz} className='bg-blue-500 text-white py-2 px-6  rounded-full hover:bg-blue-400 transition  w-full  sm:w-auto'>
-            Are you Ready ?  Start Quiz     
+            Are you Ready ? Start {selectedCategory} Quiz
           </button>
         </div>
         <p className='text-xs  text-center  mt-4 '>

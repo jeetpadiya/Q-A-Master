@@ -1,21 +1,22 @@
+import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import connectDB from './config/db.js';
+import userRouter from './routes/userRoutes.js';
+
+const questionsFileUrl = new URL('./questions.json', import.meta.url);
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const questionsFilePath = path.join(__dirname, 'questions.json');
 
 app.use(express.json());
 app.use(cors());
+app.use('/api/users',userRouter)
 
 
 app.get('/api/questions',(req,res)=>{
-    fs.readFile(questionsFilePath,'utf-8',(err,data)=>{
+    fs.readFile(questionsFileUrl,'utf-8',(err,data)=>{
         if(err){
             return res.status(500).send({message:"Failed to load questions"})
         }
@@ -24,6 +25,14 @@ app.get('/api/questions',(req,res)=>{
     })
 })
 
-app.listen(PORT,()=>{
-    console.log(`Server is Running ${PORT}`);
-})
+
+
+const startServer = async () => {
+    await connectDB();
+
+    app.listen(PORT,()=>{
+        console.log(`Server is Running ${PORT}`);
+    });
+};
+
+startServer();
