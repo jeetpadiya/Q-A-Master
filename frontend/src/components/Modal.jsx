@@ -1,48 +1,50 @@
-import React from 'react'
+import React from 'react';
 
 const Modal = ({ closeModal, startQuiz, selectedCategory }) => {
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-sm p-4">
-      <div className="w-full max-w-md sm:max-w-lg md:max-w-2xl rounded-2xl bg-[#0f172a] p-6 sm:p-8 md:p-10 shadow-2xl border-2 border-white/10">
-        <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white mb-2 text-center">
-          Quiz Instructions
-        </h2>
-        <div className="mb-6 flex justify-center">
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-3.5 py-1 font-mono text-xs font-semibold uppercase tracking-wider text-cyan-300">
-            Track: {selectedCategory}
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+      <div className="w-full max-w-md sm:max-w-lg rounded-xl bg-[#121215] border border-zinc-800 p-6 sm:p-7 shadow-2xl">
+        <div className="flex items-center justify-between pb-4 border-b border-zinc-800 mb-4">
+          <h2 className="text-lg font-bold text-zinc-100">
+            Classic 10s Blitz Mode
+          </h2>
+          <span className="font-mono text-xs px-2.5 py-0.5 rounded border border-zinc-700 bg-zinc-800 text-zinc-300">
+            {selectedCategory}
           </span>
         </div>
-        <ul className="list-decimal pl-5 sm:pl-6 text-sm sm:text-base font-normal leading-relaxed text-slate-200 space-y-2.5">
-          <li>Read each question carefully before selecting your answer.</li>
-          <li>You have 10 seconds per question to choose an answer.</li>
-          <li>You can use keyboard shortcuts <strong>[1-4]</strong> or <strong>[A-D]</strong> to quickly select options.</li>
-          <li>Press <strong>[Enter]</strong> to immediately advance to the next question.</li>
-          <li>Score 100% on any track to unlock an official verified certificate.</li>
-          <li>Answers are evaluated and verified server-side upon completion.</li>
+
+        <ul className="text-xs sm:text-sm text-zinc-300 space-y-2.5 leading-relaxed">
+          <li className="flex items-start gap-2">
+            <span className="text-zinc-500 font-mono">01.</span>
+            <span>10 fast-paced questions with a strict 10-second countdown per question.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="text-zinc-500 font-mono">02.</span>
+            <span>Press keys <strong className="font-mono text-zinc-200">[A-D]</strong> or <strong className="font-mono text-zinc-200">[1-4]</strong> to lock in your answer.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="text-zinc-500 font-mono">03.</span>
+            <span>Score 10/10 to unlock your permanent verified certificate.</span>
+          </li>
         </ul>
-        <p className="text-center mt-6 text-base md:text-lg font-semibold text-slate-100">
-          Good Luck!
-        </p>
-        <div className="mt-6 flex flex-col sm:flex-row justify-between gap-3">
+
+        <div className="mt-7 flex items-center justify-end gap-2.5 pt-4 border-t border-zinc-800">
           <button
             onClick={closeModal}
-            className="btn-tactile-dark px-6 py-3 text-sm font-semibold w-full sm:w-auto"
+            className="btn-secondary py-2 px-4 text-xs font-medium"
           >
             Cancel
           </button>
           <button
             onClick={startQuiz}
-            className="btn-tactile-primary px-7 py-3 text-sm sm:text-base font-bold w-full sm:w-auto"
+            className="btn-primary py-2 px-5 text-xs font-semibold"
           >
-            Start {selectedCategory} Challenge →
+            Begin Blitz Quiz →
           </button>
         </div>
-        <p className="mt-5 text-center font-mono text-xs font-medium text-amber-200/90">
-          Note: Timer starts immediately upon clicking start.
-        </p>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Modal
+export default Modal;

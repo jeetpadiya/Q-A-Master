@@ -4,6 +4,7 @@ import cors from 'cors';
 import connectDB from './config/db.js';
 import userRouter from './routes/userRoutes.js';
 import quizRouter from './routes/quizRoutes.js';
+import adaptiveRouter from './routes/adaptiveRoutes.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -13,6 +14,7 @@ app.use(cors());
 
 // Route handlers
 app.use('/api/users', userRouter);
+app.use('/api/adaptive', adaptiveRouter);
 app.use('/api', quizRouter);
 
 // Health check endpoint

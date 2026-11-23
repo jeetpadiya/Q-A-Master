@@ -1,65 +1,67 @@
-import React from 'react'
+import React from 'react';
 
 const stepsData = [
   {
-    step: 'step1',
-    title: 'Select a Track',
-    description: 'Choose from React, JavaScript, Python, MERN, CSS, or Tailwind CSS.',
+    step: '01',
+    title: 'Select Track',
+    description: 'Pick from React, JavaScript, Python, CSS, Tailwind, or the MERN full-stack curriculum.',
   },
   {
-    step: 'step2',
-    title: 'Answer Timed Questions',
-    description: 'Read each problem carefully and lock in your answer before the timer expires.',
+    step: '02',
+    title: 'Adaptive Calibration',
+    description: 'Questions scale dynamically. Answer correctly to climb from Junior (L1) to Staff (L5).',
   },
   {
-    step: 'step3',
-    title: 'Review Your Performance',
-    description: 'Inspect detailed explanations for correct answers and track improvement.',
+    step: '03',
+    title: 'Concept Breakdown',
+    description: 'Every answer returns technical grounding referencing language specifications and edge cases.',
   },
   {
-    step: 'step4',
-    title: 'Claim Your Certificate',
-    description: 'Score full marks in any category to unlock and showcase your verified certificate.',
+    step: '04',
+    title: 'Verifiable Proof',
+    description: 'Demonstrate technical ceiling and unlock high-resolution cryptographic certificates.',
   },
-]
+];
 
 const Steps = () => {
   return (
-    <section className="text-white py-14 border-t border-white/10 mb-8">
-      <div className="container mx-auto px-4 max-w-6xl">
-        <div className="text-center mb-12">
-          <p className="font-mono text-xs uppercase tracking-widest font-semibold text-cyan-300 mb-2">
-            Quick Guide
+    <section className="py-16 border-t border-zinc-800/80 bg-[#09090b]">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="max-w-xl mb-12">
+          <p className="font-mono text-xs uppercase tracking-widest font-semibold text-zinc-500 mb-2">
+            Assessment Workflow
           </p>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-white">
-            How It Works
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-100">
+            How evaluation works
           </h2>
-          <p className="mt-2 text-sm sm:text-base font-medium text-slate-300 max-w-md mx-auto">
-            Four simple steps to test your skills and earn proof of mastery.
+          <p className="mt-2 text-sm text-zinc-400">
+            Engineered for engineers. Designed to assess practical depth over trivia.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {stepsData.map((step, index) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {stepsData.map((step) => (
             <div
               key={step.step}
-              className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm flex flex-col items-start transition hover:border-cyan-300/40"
+              className="rounded-xl border border-zinc-800 bg-[#121215] p-5 flex flex-col justify-between transition hover:border-zinc-700"
             >
-              <div className="w-10 h-10 rounded-xl bg-cyan-400 text-slate-950 flex items-center justify-center mb-5 font-mono font-bold text-base shadow-sm">
-                0{index + 1}
+              <div>
+                <span className="font-mono text-xs font-semibold text-zinc-400 rounded-md border border-zinc-700/80 bg-zinc-800 px-2 py-0.5 inline-block mb-4">
+                  {step.step}
+                </span>
+                <h3 className="font-semibold text-sm text-zinc-200 mb-2">
+                  {step.title}
+                </h3>
+                <p className="text-xs text-zinc-400 leading-relaxed">
+                  {step.description}
+                </p>
               </div>
-              <h3 className="font-bold text-lg text-white mb-2 tracking-tight">
-                {step.title}
-              </h3>
-              <p className="text-sm font-normal text-slate-300 leading-relaxed">
-                {step.description}
-              </p>
             </div>
           ))}
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Steps
+export default Steps;

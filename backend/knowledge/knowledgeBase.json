@@ -1,0 +1,212 @@
+[
+  {
+    "id": "REACT_L1_001",
+    "category": "React",
+    "level": 1,
+    "topic": "JSX and Component Basics",
+    "concept": "React components must return a single root JSX element or Fragment (<>...</>). JSX is syntactic sugar that compiles to React.createElement() calls.",
+    "codeSnippet": "function Greeting({ name }) {\n  return (\n    <>\n      <h1>Hello, {name}!</h1>\n      <p>Welcome to React.</p>\n    </>\n  );\n}",
+    "edgeCases": "Adjacent JSX elements without a wrapper throw a syntax error. React components must be capitalized so React distinguishes them from native HTML tags.",
+    "keywords": ["jsx", "fragment", "component", "return", "createElement"]
+  },
+  {
+    "id": "REACT_L1_002",
+    "category": "React",
+    "level": 1,
+    "topic": "Props Immutability",
+    "concept": "Props are strictly read-only values passed down unidirectionally from parent to child. A component must never modify its own props directly.",
+    "codeSnippet": "function Button(props) {\n  // BAD: props.label = 'Clicked'; (mutating props directly throws in strict mode)\n  return <button>{props.label}</button>;\n}",
+    "edgeCases": "Modifying props does not trigger a re-render and causes subtle bugs in React's component tree reconciliation.",
+    "keywords": ["props", "immutable", "read-only", "unidirectional"]
+  },
+  {
+    "id": "REACT_L2_001",
+    "category": "React",
+    "level": 2,
+    "topic": "useState and State Updates",
+    "concept": "useState declares state in functional components. State updates are asynchronous and batched by React. When next state depends on current state, the updater function syntax should be used.",
+    "codeSnippet": "const [count, setCount] = useState(0);\n// Safe updater syntax:\nsetCount(prev => prev + 1);",
+    "edgeCases": "Calling setCount(count + 1) multiple times synchronously in the same event handler will only increment by 1 due to batching.",
+    "keywords": ["useState", "batching", "updater", "asynchronous state"]
+  },
+  {
+    "id": "REACT_L2_002",
+    "category": "React",
+    "level": 2,
+    "topic": "useEffect Dependency Array",
+    "concept": "useEffect runs side-effects. The dependency array tells React when to re-execute: [] means run once after mount; omitting array means run after every render; [dep] runs when dep changes.",
+    "codeSnippet": "useEffect(() => {\n  const handler = () => console.log('Resized');\n  window.addEventListener('resize', handler);\n  return () => window.removeEventListener('resize', handler); // cleanup\n}, []);",
+    "edgeCases": "Omitting state or functions used inside the effect from the dependency array leads to stale closure bugs.",
+    "keywords": ["useEffect", "dependencies", "cleanup", "mount", "stale"]
+  },
+  {
+    "id": "REACT_L3_001",
+    "category": "React",
+    "level": 3,
+    "topic": "Stale Closures in Hooks",
+    "concept": "Hooks capture variables in their lexical scope from the render in which they were created. If a hook callback is not re-created when state changes, it reads outdated 'stale' values.",
+    "codeSnippet": "useEffect(() => {\n  const timer = setInterval(() => {\n    // If count is not in deps and updater is not used:\n    console.log(count); // will permanently log initial count!\n  }, 1000);\n  return () => clearInterval(timer);\n}, []);",
+    "edgeCases": "SetInterval or async promises initialized with empty dependencies will trap the initial render state forever.",
+    "keywords": ["stale closure", "lexical scope", "setInterval", "render state"]
+  },
+  {
+    "id": "REACT_L3_002",
+    "category": "React",
+    "level": 3,
+    "topic": "useCallback and useMemo Referential Equality",
+    "concept": "In JavaScript, functions and objects are compared by reference. Passing inline object literals or inline functions to memoized children (React.memo) breaks memoization unless wrapped in useMemo/useCallback.",
+    "codeSnippet": "const memoizedCallback = useCallback(() => {\n  doSomething(a, b);\n}, [a, b]);\nconst memoizedValue = useMemo(() => computeExpensive(a), [a]);",
+    "edgeCases": "Overusing useMemo for trivial primitives has a net negative memory overhead. useMemo is for expensive computations or reference preservation.",
+    "keywords": ["useCallback", "useMemo", "referential equality", "React.memo"]
+  },
+  {
+    "id": "REACT_L4_001",
+    "category": "React",
+    "level": 4,
+    "topic": "Race Conditions in Data Fetching",
+    "concept": "When an async request is triggered on state change, previous network responses may resolve AFTER subsequent requests, causing the UI to show stale or mismatched data.",
+    "codeSnippet": "useEffect(() => {\n  let active = true;\n  fetchData(userId).then(data => {\n    if (active) setState(data);\n  });\n  return () => { active = false; }; // ignores response if userId changed before resolution\n}, [userId]);",
+    "edgeCases": "AbortController or a cleanup flag must be used to cancel or ignore inflight promises when dependencies change before the fetch completes.",
+    "keywords": ["race condition", "async", "AbortController", "data fetching", "cleanup"]
+  },
+  {
+    "id": "REACT_L4_002",
+    "category": "React",
+    "level": 4,
+    "topic": "React 18 Concurrent Rendering and Transitions",
+    "concept": "useTransition allows developers to mark state updates as non-blocking transitions. Urgent updates (typing in an input) interrupt non-urgent transitions (rendering a filtered list).",
+    "codeSnippet": "const [isPending, startTransition] = useTransition();\n\nfunction handleChange(e) {\n  setInputValue(e.target.value); // Urgent: show input instantly\n  startTransition(() => {\n    setSearchQuery(e.target.value); // Non-urgent: can be deferred\n  });\n}",
+    "edgeCases": "Code inside startTransition must be synchronous; async operations like setTimeout or promises inside startTransition cannot be tracked.",
+    "keywords": ["useTransition", "concurrent", "non-blocking", "startTransition", "urgency"]
+  },
+  {
+    "id": "REACT_L5_001",
+    "category": "React",
+    "level": 5,
+    "topic": "Fiber Architecture & Object.is Bailout",
+    "concept": "React represents component trees as a singly linked list of Fiber nodes. During reconciliation, React compares the previous state and new state using Object.is. If the state is identical by reference, React bails out of re-rendering child fibers completely.",
+    "codeSnippet": "const [state, setState] = useState({ count: 1 });\n// BAILOUT TRIGGER:\nsetState(prevState => {\n  if (noChange) return prevState; // Identical reference: React bails out of rendering\n  return { ...prevState, count: 2 };\n});",
+    "edgeCases": "Mutating an object directly (state.count = 2; setState(state)) keeps the same reference, causing React to bail out and NOT update the UI.",
+    "keywords": ["fiber", "Object.is", "bailout", "reconciliation", "reference equality"]
+  },
+  {
+    "id": "JS_L1_001",
+    "category": "JavaScript",
+    "level": 1,
+    "topic": "Primitives vs Reference Types",
+    "concept": "JavaScript primitives (string, number, boolean, null, undefined, symbol, bigint) are immutable and passed by value. Objects, arrays, and functions are mutable and passed by reference.",
+    "codeSnippet": "let x = 10;\nlet y = x;\ny = 20; // x is still 10\n\nlet a = { count: 10 };\nlet b = a;\nb.count = 20; // a.count is now 20 (shared reference)",
+    "edgeCases": "Comparing two distinct objects with identical properties via === returns false because they occupy different memory addresses.",
+    "keywords": ["primitive", "reference", "mutability", "pass by value"]
+  },
+  {
+    "id": "JS_L2_001",
+    "category": "JavaScript",
+    "level": 2,
+    "topic": "Array Methods and Immutability",
+    "concept": "Methods like .map(), .filter(), .slice(), and .concat() return new arrays without mutating the original. Methods like .push(), .splice(), and .sort() mutate the array in-place.",
+    "codeSnippet": "const numbers = [3, 1, 4];\n// Mutates in place:\nnumbers.sort(); \n// Immutable (ES2023):\nconst sorted = numbers.toSorted();",
+    "edgeCases": "Using .sort() without a comparator sorts items alphabetically, converting numbers to strings: [10, 2].sort() results in [10, 2] instead of [2, 10].",
+    "keywords": ["map", "filter", "sort", "splice", "immutable"]
+  },
+  {
+    "id": "JS_L3_001",
+    "category": "JavaScript",
+    "level": 3,
+    "topic": "Lexical Closures and Scope Chains",
+    "concept": "A closure is the combination of a function bundled together with references to its surrounding lexical state (lexical environment). Closures allow inner functions to access outer variables even after the outer function has returned.",
+    "codeSnippet": "function createCounter() {\n  let count = 0;\n  return {\n    increment: () => ++count,\n    getCount: () => count\n  };\n}\nconst counter = createCounter();\ncounter.increment(); // 1",
+    "edgeCases": "Closures can cause memory leaks if outer variables reference large objects and the inner function is stored in a global cache or long-lived event handler.",
+    "keywords": ["closure", "lexical scope", "encapsulation", "scope chain"]
+  },
+  {
+    "id": "JS_L4_001",
+    "category": "JavaScript",
+    "level": 4,
+    "topic": "Event Loop: Microtasks vs Macrotasks",
+    "concept": "The JavaScript event loop executes synchronous code first. Once the call stack is empty, it drains the ENTIRE microtask queue (Promise.then, MutationObserver, queueMicrotask) before picking a SINGLE macrotask (setTimeout, setInterval, I/O).",
+    "codeSnippet": "console.log('1');\nsetTimeout(() => console.log('2'), 0); // Macrotask\nPromise.resolve().then(() => console.log('3')); // Microtask\nconsole.log('4');\n// Output order: 1, 4, 3, 2",
+    "edgeCases": "Continuously queueing microtasks (e.g. recursive Promise.resolve().then) starves the macrotask queue and freezes browser UI rendering.",
+    "keywords": ["event loop", "microtask", "macrotask", "queueMicrotask", "setTimeout"]
+  },
+  {
+    "id": "JS_L5_001",
+    "category": "JavaScript",
+    "level": 5,
+    "topic": "V8 Engine Internals: Hidden Classes and Inline Caches",
+    "concept": "V8 does not use slow hash table lookups for JavaScript object properties. Instead, it creates internal 'hidden classes' (Shapes). If two objects share the same property initialization order, they share a Shape, enabling monomorphic Inline Caches (fast assembly-level memory offsets).",
+    "codeSnippet": "// Monomorphic (Fast - same hidden class):\nfunction Point(x, y) {\n  this.x = x;\n  this.y = y;\n}\n\n// Polymorphic/Megamorphic (Slow):\nconst obj1 = { a: 1, b: 2 };\nconst obj2 = { b: 2, a: 1 }; // Different property order -> different hidden class!",
+    "edgeCases": "Adding or deleting dynamic properties using `delete` morphs the object's hidden class into generic dictionary mode, drastically degrading JIT compiler optimization.",
+    "keywords": ["v8", "hidden class", "inline cache", "shapes", "jit optimization"]
+  },
+  {
+    "id": "PY_L1_001",
+    "category": "Python",
+    "level": 1,
+    "topic": "Lists vs Tuples",
+    "concept": "Lists are mutable sequences declared with brackets []. Tuples are immutable sequences declared with parentheses (). Once created, elements in a tuple cannot be reassigned.",
+    "codeSnippet": "my_list = [1, 2, 3]\nmy_list[0] = 99 # Valid\n\nmy_tuple = (1, 2, 3)\n# my_tuple[0] = 99 # Raises TypeError: 'tuple' object does not support item assignment",
+    "edgeCases": "If a tuple contains a mutable object (like a list: ([1, 2], 3)), the inner list can still be mutated, though the tuple itself remains unchanged.",
+    "keywords": ["list", "tuple", "mutable", "immutable", "sequence"]
+  },
+  {
+    "id": "PY_L3_001",
+    "category": "Python",
+    "level": 3,
+    "topic": "Generators and Memory Optimization",
+    "concept": "Generators produce items lazily on demand using the `yield` keyword instead of computing and loading an entire list into memory all at once. They implement the iterator protocol.",
+    "codeSnippet": "def fibonacci():\n  a, b = 0, 1\n  while True:\n    yield a\n    a, b = b, a + b\n\ngen = fibonacci()\nprint(next(gen)) # 0\nprint(next(gen)) # 1",
+    "edgeCases": "Generators can only be iterated once. Once exhausted, calling next() raises StopIteration unless re-instantiated.",
+    "keywords": ["generator", "yield", "lazy evaluation", "memory", "iterator"]
+  },
+  {
+    "id": "PY_L5_001",
+    "category": "Python",
+    "level": 5,
+    "topic": "Global Interpreter Lock (GIL) and Concurrency",
+    "concept": "In CPython, the Global Interpreter Lock (GIL) is a mutex that prevents multiple native threads from executing Python bytecodes simultaneously. CPU-bound tasks do not achieve parallelism with threading; they require multiprocessing.",
+    "codeSnippet": "import threading, multiprocessing\n# Threading in Python is ideal for I/O-bound tasks (network, disk).\n# Multiprocessing bypasses the GIL by spawning separate OS processes with distinct Python interpreters.",
+    "edgeCases": "Multithreading CPU-heavy workloads in Python can actually run slower than single-threaded code due to thread switching and GIL contention overhead.",
+    "keywords": ["gil", "cpython", "multiprocessing", "threading", "mutex", "concurrency"]
+  },
+  {
+    "id": "CSS_L3_001",
+    "category": "CSS",
+    "level": 3,
+    "topic": "Specificity Calculation Rules",
+    "concept": "CSS specificity is calculated in 4 categories: Inline styles (1,0,0,0) > ID selectors (0,1,0,0) > Class, attribute, and pseudo-class selectors (0,0,1,0) > Element and pseudo-element selectors (0,0,0,1).",
+    "codeSnippet": "/* Specificity: 0, 1, 1, 1 */\n#header nav .active {\n  color: cyan;\n}\n/* Specificity: 0, 0, 2, 0 */\n.main .active {\n  color: red; /* Loses to #header nav .active */\n}",
+    "edgeCases": "!important overrides normal specificity calculations, but if two conflicting declarations both use !important, the one with higher specificity wins.",
+    "keywords": ["specificity", "cascade", "selector", "important", "override"]
+  },
+  {
+    "id": "CSS_L5_001",
+    "category": "CSS",
+    "level": 5,
+    "topic": "Stacking Contexts and GPU Compositing",
+    "concept": "A stacking context is a 3D conceptualization of HTML elements along an imaginary z-axis. Elements inside a stacking context cannot escape above sibling contexts, regardless of how high their z-index is set.",
+    "codeSnippet": "/* Triggers a new stacking context: */\n.parent {\n  opacity: 0.99; /* Any opacity < 1 creates a new stacking context! */\n  /* Also created by: transform, filter, will-change, contain: paint, isolation: isolate */\n}",
+    "edgeCases": "Setting z-index: 999999 on a child will not bring it above an external element if its parent has created an isolated stacking context with a lower z-index.",
+    "keywords": ["stacking context", "z-index", "compositing", "isolation", "gpu"]
+  },
+  {
+    "id": "MERN_L3_001",
+    "category": "MERN Stack",
+    "level": 3,
+    "topic": "JWT Storage and XSS vs CSRF Vulnerabilities",
+    "concept": "Storing JWTs in localStorage exposes them to Cross-Site Scripting (XSS) attacks. Storing JWTs in HttpOnly SameSite cookies protects against XSS token theft, but requires CSRF protection for mutating requests.",
+    "codeSnippet": "res.cookie('token', jwtToken, {\n  httpOnly: true,\n  secure: process.env.NODE_ENV === 'production',\n  sameSite: 'Strict',\n  maxAge: 7 * 24 * 60 * 60 * 1000\n});",
+    "edgeCases": "HttpOnly cookies cannot be accessed via document.cookie by malicious JavaScript, stopping token exfiltration.",
+    "keywords": ["jwt", "xss", "csrf", "httponly", "cookie", "security"]
+  },
+  {
+    "id": "MERN_L5_001",
+    "category": "MERN Stack",
+    "level": 5,
+    "topic": "MongoDB Indexing and Compound Index ESR Rule",
+    "concept": "In MongoDB, compound indexes must follow the ESR (Equality, Sort, Range) rule to avoid in-memory sorting. Fields queried for exact equality come first, followed by fields used for sorting, followed by range filter fields.",
+    "codeSnippet": "// Query: db.users.find({ status: 'active', age: { $gte: 21 } }).sort({ score: -1 })\n// Index following ESR Rule:\n// 1. Equality: status\n// 2. Sort: score\n// 3. Range: age\ndb.users.createIndex({ status: 1, score: -1, age: 1 });",
+    "edgeCases": "Placing the range field before the sort field in a compound index forces MongoDB to perform a blocking in-memory sort instead of an index-based scan.",
+    "keywords": ["mongodb", "compound index", "esr rule", "aggregation", "performance"]
+  }
+]

@@ -4,7 +4,7 @@ import Modal from './Modal';
 import Steps from './Steps';
 import { useContext } from 'react';
 import { QuizContext } from '../context/QuizContext';
-import { TechIcon, TrophyIcon, FlameIcon } from './TechIcon';
+import { TechIcon } from './TechIcon';
 import { playTactilePop } from '../utils/sound';
 
 const Header = () => {
@@ -28,6 +28,11 @@ const Header = () => {
     navigate('/quiz');
   };
 
+  const startAdaptiveQuiz = () => {
+    playTactilePop();
+    navigate('/adaptive');
+  };
+
   const selectCategory = (cat) => {
     playTactilePop();
     handleCategoryChange(cat);
@@ -35,51 +40,43 @@ const Header = () => {
 
   return (
     <>
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 lg:py-16">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
-          {/* Left Column: Headline & Track Selector */}
+          {/* Left Column: True Minimalist Developer Intro */}
           <div className="lg:col-span-7 text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-3.5 py-1 font-mono text-xs font-semibold text-cyan-300 mb-6 shadow-sm">
-              <FlameIcon className="w-4 h-4 text-amber-400" />
-              <span>Interactive Developer Assessment</span>
+            <div className="inline-flex items-center gap-2 rounded-full border border-zinc-800 bg-zinc-900/80 px-3 py-1 text-xs text-zinc-400 font-mono mb-6">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <span>Computerized Adaptive Testing · Gemini RAG Engine</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.12]">
-              Master Code.<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-teal-200 to-indigo-300">
-                Prove Your Skills.
-              </span>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-zinc-100 leading-[1.08]">
+              The developer skill assessment platform.
             </h1>
 
-            <p className="mt-4 text-base sm:text-lg md:text-xl font-normal leading-relaxed text-slate-300 max-w-2xl mx-auto lg:mx-0">
-              Take timed developer challenges, diagnose tricky language edge-cases, and earn verified completion credentials stored directly in your account.
+            <p className="mt-4 text-base sm:text-lg font-normal leading-relaxed text-zinc-400 max-w-xl mx-auto lg:mx-0">
+              Interactive code challenges where difficulty scales dynamically with every correct answer. Grounded in language specifications to evaluate real engineering seniority.
             </p>
 
-            {/* Category Track Selector with Tactile Buttons */}
+            {/* Clean Track Selector */}
             <div className="mt-8">
-              <div className="flex items-center justify-center lg:justify-start gap-2 mb-3">
-                <span className="font-mono text-xs uppercase tracking-wider font-semibold text-slate-400">
-                  Select Track:
-                </span>
-                <span className="font-mono text-xs font-bold text-cyan-300">
-                  {selectedCategory}
-                </span>
-              </div>
+              <p className="font-mono text-xs uppercase tracking-widest font-medium text-zinc-500 mb-3">
+                Technical Tracks
+              </p>
 
-              <div className="flex flex-wrap justify-center lg:justify-start gap-2.5">
+              <div className="flex flex-wrap justify-center lg:justify-start gap-2">
                 {categories.map((category) => {
                   const isSelected = selectedCategory === category;
                   return (
                     <button
                       key={category}
                       onClick={() => selectCategory(category)}
-                      className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-sm transition-all select-none ${
+                      className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-lg font-medium text-xs sm:text-sm transition-all select-none border ${
                         isSelected
-                          ? 'bg-cyan-400 text-slate-950 border-b-4 border-cyan-600 active:border-b-0 active:translate-y-1 shadow-md'
-                          : 'bg-[#151c2e] text-slate-200 border border-white/10 border-b-4 border-slate-900 hover:border-cyan-400/50 hover:bg-[#1a233a] active:border-b-2 active:translate-y-[2px]'
+                          ? 'border-zinc-600 bg-zinc-800 text-zinc-100 shadow-sm'
+                          : 'border-zinc-800/80 bg-zinc-900/40 text-zinc-400 hover:text-zinc-200 hover:border-zinc-700'
                       }`}
                     >
-                      <TechIcon name={category} className="w-4 h-4" />
+                      <TechIcon name={category} className="w-4 h-4 opacity-90" />
                       <span>{category}</span>
                     </button>
                   );
@@ -87,99 +84,73 @@ const Header = () => {
               </div>
             </div>
 
-            {/* Primary Action Button */}
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            {/* Assessment Mode CTAs */}
+            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
+              <button
+                onClick={startAdaptiveQuiz}
+                className="btn-primary w-full sm:w-auto"
+              >
+                <span>Start AI Adaptive Challenge</span>
+                <span className="ml-2 font-mono">→</span>
+              </button>
+
               <button
                 onClick={openModal}
-                className="btn-tactile-primary px-8 py-4 text-base sm:text-lg w-full sm:w-auto shadow-lg"
+                className="btn-secondary w-full sm:w-auto"
               >
-                <span>Start {selectedCategory} Challenge</span>
-                <span className="ml-2 font-mono font-bold">→</span>
-              </button>
-              <button
-                onClick={() => navigate('/dashboard')}
-                className="btn-tactile-dark px-6 py-4 text-sm sm:text-base w-full sm:w-auto"
-              >
-                View Certificates
+                Classic 10s Blitz
               </button>
             </div>
 
-            {/* Stats Row */}
-            <div className="mt-10 pt-6 border-t border-white/10 grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0 text-center lg:text-left">
+            {/* Minimalist Specs Row */}
+            <div className="mt-12 pt-6 border-t border-zinc-800/80 grid grid-cols-3 gap-6 max-w-md mx-auto lg:mx-0 text-center lg:text-left font-mono">
               <div>
-                <p className="font-mono text-xl sm:text-2xl font-extrabold text-white">60+</p>
-                <p className="font-mono text-xs text-slate-400 uppercase tracking-wider">Curated Qs</p>
+                <p className="text-xl font-bold text-zinc-200">1.0 → 5.0</p>
+                <p className="text-[11px] text-zinc-500 uppercase tracking-wider mt-0.5">Dynamic Levels</p>
               </div>
               <div>
-                <p className="font-mono text-xl sm:text-2xl font-extrabold text-cyan-300">10s</p>
-                <p className="font-mono text-xs text-slate-400 uppercase tracking-wider">Blitz Speed</p>
+                <p className="text-xl font-bold text-zinc-200">Zero Leak</p>
+                <p className="text-[11px] text-zinc-500 uppercase tracking-wider mt-0.5">Server Verified</p>
               </div>
               <div>
-                <p className="font-mono text-xl sm:text-2xl font-extrabold text-emerald-400">100%</p>
-                <p className="font-mono text-xs text-slate-400 uppercase tracking-wider">Verified Certs</p>
+                <p className="text-xl font-bold text-zinc-200">Instant</p>
+                <p className="text-[11px] text-zinc-500 uppercase tracking-wider mt-0.5">PNG Certificate</p>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Gamified Live Card Preview (Replaces stock question mark) */}
+          {/* Right Column: Clean Code Inspector Terminal */}
           <div className="lg:col-span-5 flex justify-center">
-            <div className="w-full max-w-md rounded-2xl border-2 border-white/10 bg-[#0f172a] p-6 shadow-2xl relative">
-              {/* Card Header */}
-              <div className="flex items-center justify-between pb-4 border-b border-white/10">
-                <div className="flex items-center gap-2.5">
-                  <TechIcon name={selectedCategory} className="w-6 h-6" />
-                  <div>
-                    <p className="font-bold text-sm text-white">{selectedCategory} Mastery</p>
-                    <p className="font-mono text-[11px] text-slate-400">Track 01 · 10 Questions</p>
-                  </div>
+            <div className="w-full max-w-md rounded-xl border border-zinc-800 bg-[#121215] shadow-2xl overflow-hidden font-mono text-xs">
+              {/* Terminal Titlebar */}
+              <div className="flex items-center justify-between px-4 py-2.5 bg-zinc-900/70 border-b border-zinc-800">
+                <div className="flex items-center gap-1.5">
+                  <div className="h-2.5 w-2.5 rounded-full bg-zinc-700" />
+                  <div className="h-2.5 w-2.5 rounded-full bg-zinc-700" />
+                  <div className="h-2.5 w-2.5 rounded-full bg-zinc-700" />
                 </div>
-                <div className="flex items-center gap-1 rounded-lg border border-amber-400/30 bg-amber-400/10 px-2.5 py-1 font-mono text-xs font-bold text-amber-300">
-                  <span>⏱</span>
-                  <span>10s</span>
-                </div>
+                <span className="text-[11px] text-zinc-400">adaptive-eval.tsx</span>
+                <span className="text-[10px] text-emerald-400 font-semibold">● LIVE</span>
               </div>
 
-              {/* Sample Live Question Preview */}
-              <div className="my-5">
-                <p className="font-mono text-[11px] uppercase tracking-wider font-semibold text-cyan-400 mb-1">
-                  Question 01 of 10
-                </p>
-                <h3 className="font-bold text-base text-slate-100 leading-snug">
-                  What is the primary purpose of useEffect in modern React?
-                </h3>
-              </div>
-
-              {/* Interactive Mock Options */}
-              <div className="space-y-2.5">
-                <div className="flex items-center gap-3 p-3 rounded-xl border border-white/10 bg-white/5 font-medium text-xs text-slate-300">
-                  <span className="flex h-5 w-5 items-center justify-center rounded-md border border-white/20 bg-white/10 font-mono text-[10px] font-bold text-slate-400">
-                    A
-                  </span>
-                  <span>Directly mutate DOM nodes on hover</span>
+              {/* Code Snippet */}
+              <div className="p-4 space-y-3 leading-relaxed text-zinc-300">
+                <div className="text-zinc-500">// Track: {selectedCategory} · Level 3.4 Senior Evaluation</div>
+                <div className="p-3 rounded-lg bg-zinc-950 border border-zinc-800/80 text-[11px] space-y-1">
+                  <div><span className="text-indigo-400">const</span> [state, setState] = <span className="text-cyan-400">useState</span>({`{ count: 0 }`});</div>
+                  <div><span className="text-indigo-400">function</span> <span className="text-amber-300">update</span>() {`{`}</div>
+                  <div className="pl-4 text-zinc-400">setState(prev =&gt; prev); <span className="text-zinc-600">// Object.is bailout?</span></div>
+                  <div>{`}`}</div>
                 </div>
 
-                <div className="flex items-center gap-3 p-3 rounded-xl border-2 border-cyan-400/80 bg-cyan-950/30 font-medium text-xs text-cyan-100">
-                  <span className="flex h-5 w-5 items-center justify-center rounded-md bg-cyan-400 font-mono text-[10px] font-bold text-slate-950">
-                    B
-                  </span>
-                  <span>Synchronize side-effects with component state</span>
+                <div className="text-zinc-400 pt-1">
+                  <span className="text-zinc-500 font-semibold">Invariant:</span> React compares references. Identical references trigger reconciliation bailout.
                 </div>
 
-                <div className="flex items-center gap-3 p-3 rounded-xl border border-white/10 bg-white/5 font-medium text-xs text-slate-300">
-                  <span className="flex h-5 w-5 items-center justify-center rounded-md border border-white/20 bg-white/10 font-mono text-[10px] font-bold text-slate-400">
-                    C
-                  </span>
-                  <span>Compile JSX to WebAssembly</span>
+                <div className="pt-2 border-t border-zinc-800/80 flex items-center justify-between text-[11px] text-zinc-500">
+                  <span>Engine: Gemini 3.8 RAG</span>
+                  <span className="text-zinc-300">Target: Staff Engineer</span>
                 </div>
-              </div>
-
-              {/* Badge Preview */}
-              <div className="mt-5 pt-4 border-t border-white/10 flex items-center justify-between font-mono text-xs text-slate-400">
-                <div className="flex items-center gap-1.5 text-emerald-400">
-                  <TrophyIcon className="w-4 h-4 text-amber-400" />
-                  <span>Unlocks Credential</span>
-                </div>
-                <span className="text-[11px]">Server Authenticated</span>
               </div>
             </div>
           </div>

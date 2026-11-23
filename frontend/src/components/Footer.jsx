@@ -1,59 +1,39 @@
-import React from 'react'
+import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="border-t border-white/10 bg-[#070a12] text-slate-400 pt-12 pb-8">
-      <div className="container mx-auto px-4 max-w-6xl">
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center pb-8 border-b border-white/10 gap-8">
-          <div>
-            <div className="flex items-center gap-2.5 mb-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600 text-slate-950 font-mono font-bold text-sm shadow-sm">
-                QA
-              </div>
-              <span className="font-extrabold text-lg tracking-tight text-white">
-                Q-A <span className="text-cyan-400">Master</span>
-              </span>
+    <footer className="border-t border-zinc-800 bg-[#09090b] text-zinc-500 text-xs py-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 pb-8 border-b border-zinc-800/80">
+          <div className="flex items-center gap-2.5">
+            <div className="flex h-6 w-6 items-center justify-center rounded border border-zinc-700 bg-zinc-800 text-zinc-200 font-mono text-[11px] font-bold">
+              QA
             </div>
-            <p className="text-xs sm:text-sm font-medium text-slate-400 max-w-xs leading-relaxed">
-              Tactile coding quizzes, server-verified scoring, and developer skill certifications.
-            </p>
+            <span className="font-semibold text-sm text-zinc-200">
+              Q-A Master
+            </span>
+            <span className="text-zinc-600">·</span>
+            <span className="text-zinc-400 text-xs">Computerized Adaptive Testing</span>
           </div>
 
-          <div className="flex flex-wrap gap-10 sm:gap-16">
-            <div>
-              <h4 className="font-mono text-xs uppercase tracking-wider font-bold text-slate-200 mb-3">
-                Tracks
-              </h4>
-              <ul className="space-y-2 text-xs sm:text-sm">
-                <li><a href="#" className="hover:text-white transition">React Track</a></li>
-                <li><a href="#" className="hover:text-white transition">JavaScript Track</a></li>
-                <li><a href="#" className="hover:text-white transition">Python Track</a></li>
-                <li><a href="#" className="hover:text-white transition">Tailwind CSS Track</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-mono text-xs uppercase tracking-wider font-bold text-slate-200 mb-3">
-                Platform
-              </h4>
-              <ul className="space-y-2 text-xs sm:text-sm">
-                <li><a href="#" className="hover:text-white transition">Verify Certificate</a></li>
-                <li><a href="#" className="hover:text-white transition">How It Works</a></li>
-                <li><a href="#" className="hover:text-white transition">Terms of Service</a></li>
-                <li><a href="#" className="hover:text-white transition">Privacy Policy</a></li>
-              </ul>
-            </div>
+          <div className="flex flex-wrap gap-6 text-zinc-400">
+            <a href="#" className="hover:text-zinc-200 transition">Documentation</a>
+            <a href="#" className="hover:text-zinc-200 transition">Tracks</a>
+            <a href="#" className="hover:text-zinc-200 transition">Verify Credential</a>
+            <a href="#" className="hover:text-zinc-200 transition">Privacy</a>
           </div>
         </div>
 
-        <div className="mt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-mono text-slate-500">
-          <p>© 2025 Jeet Padia. All Rights Reserved.</p>
-          <div className="flex space-x-6">
-            <span className="text-emerald-400">● Systems Operational</span>
+        <div className="mt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-zinc-500 font-mono text-[11px]">
+          <p>© 2025 Q-A Master. Open source engineering assessment.</p>
+          <div className="flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+            <span>Systems Normal</span>
           </div>
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
