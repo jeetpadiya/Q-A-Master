@@ -9,7 +9,8 @@
       "To style components with CSS",
       "To mutate props directly"
     ],
-    "correctAnswer": "To perform side effects after render"
+    "correctAnswer": "To perform side effects after render",
+    "explanation": "useEffect allows components to synchronize with external systems, manage subscriptions, or run side-effects after rendering."
   },
   {
     "id": "REACT_002",
@@ -21,7 +22,8 @@
       "Props can only be used in class components",
       "Props automatically persist in local storage"
     ],
-    "correctAnswer": "Props are read-only values passed into a component"
+    "correctAnswer": "Props are read-only values passed into a component",
+    "explanation": "In React, props flow unidirectionally from parent to child components and are immutable read-only values."
   },
   {
     "id": "REACT_003",
@@ -33,7 +35,8 @@
       "useFetch",
       "useMemoState"
     ],
-    "correctAnswer": "useState"
+    "correctAnswer": "useState",
+    "explanation": "In React, \"useState\" is the standard declarative pattern recommended by the official React documentation."
   },
   {
     "id": "REACT_004",
@@ -45,7 +48,8 @@
       "A CSS file",
       "A promise only"
     ],
-    "correctAnswer": "JSX or `null`"
+    "correctAnswer": "JSX or `null`",
+    "explanation": "React components must return valid JSX elements, fragments, or null to indicate nothing should be rendered."
   },
   {
     "id": "REACT_005",
@@ -57,7 +61,8 @@
       "They are required for CSS styling",
       "They make API requests faster"
     ],
-    "correctAnswer": "They help React identify changed list items"
+    "correctAnswer": "They help React identify changed list items",
+    "explanation": "In React, props flow unidirectionally from parent to child components and are immutable read-only values."
   },
   {
     "id": "REACT_006",
@@ -69,7 +74,8 @@
       "Converting state into props automatically",
       "Removing state from the app"
     ],
-    "correctAnswer": "Moving state to a common parent component"
+    "correctAnswer": "Moving state to a common parent component",
+    "explanation": "Lifting state up means moving shared state up to the closest common ancestor component so sibling components can stay in sync."
   },
   {
     "id": "REACT_007",
@@ -81,7 +87,8 @@
       "useContext",
       "useRef"
     ],
-    "correctAnswer": "useContext"
+    "correctAnswer": "useContext",
+    "explanation": "In React, \"useContext\" is the standard declarative pattern recommended by the official React documentation."
   },
   {
     "id": "REACT_008",
@@ -93,7 +100,8 @@
       "A replacement for CSS",
       "A Node.js package manager"
     ],
-    "correctAnswer": "A syntax extension that looks like HTML in JavaScript"
+    "correctAnswer": "A syntax extension that looks like HTML in JavaScript",
+    "explanation": "React components must return valid JSX elements, fragments, or null to indicate nothing should be rendered."
   },
   {
     "id": "REACT_009",
@@ -105,7 +113,8 @@
       "useContext",
       "useStore"
     ],
-    "correctAnswer": "useRef"
+    "correctAnswer": "useRef",
+    "explanation": "In React, \"useRef\" is the standard declarative pattern recommended by the official React documentation."
   },
   {
     "id": "REACT_010",
@@ -117,7 +126,8 @@
       "To avoid using props",
       "To replace routing"
     ],
-    "correctAnswer": "To improve reuse and readability"
+    "correctAnswer": "To improve reuse and readability",
+    "explanation": "In React, \"To improve reuse and readability\" is the standard declarative pattern recommended by the official React documentation."
   },
   {
     "id": "JS_001",
@@ -129,7 +139,8 @@
       "some",
       "includes"
     ],
-    "correctAnswer": "map"
+    "correctAnswer": "map",
+    "explanation": "\"map\" is the standard ECMAScript specification behavior for this JavaScript feature."
   },
   {
     "id": "JS_002",
@@ -141,7 +152,8 @@
       "Compares both value and type",
       "Checks if a variable exists"
     ],
-    "correctAnswer": "Compares both value and type"
+    "correctAnswer": "Compares both value and type",
+    "explanation": "Strict equality (===) compares both value and type without performing implicit type coercion."
   },
   {
     "id": "JS_003",
@@ -153,7 +165,8 @@
       "scope",
       "define"
     ],
-    "correctAnswer": "let"
+    "correctAnswer": "let",
+    "explanation": "\"let\" is the standard ECMAScript specification behavior for this JavaScript feature."
   },
   {
     "id": "JS_004",
@@ -165,7 +178,8 @@
       "list",
       "undefined"
     ],
-    "correctAnswer": "object"
+    "correctAnswer": "object",
+    "explanation": "In JavaScript, typeof null returns \"object\", which is a historical bug in the language retained for backwards compatibility."
   },
   {
     "id": "JS_005",
@@ -177,7 +191,8 @@
       "JSON.stringify",
       "JSON.convert"
     ],
-    "correctAnswer": "JSON.parse"
+    "correctAnswer": "JSON.parse",
+    "explanation": "\"JSON.parse\" is the standard ECMAScript specification behavior for this JavaScript feature."
   },
   {
     "id": "JS_006",
@@ -189,7 +204,8 @@
       "Repeats a function forever",
       "Stores time in local storage"
     ],
-    "correctAnswer": "Runs a function after a delay"
+    "correctAnswer": "Runs a function after a delay",
+    "explanation": "\"Runs a function after a delay\" is the standard ECMAScript specification behavior for this JavaScript feature."
   },
   {
     "id": "JS_007",
@@ -201,7 +217,8 @@
       "push",
       "slice"
     ],
-    "correctAnswer": "push"
+    "correctAnswer": "push",
+    "explanation": "\"push\" is the standard ECMAScript specification behavior for this JavaScript feature."
   },
   {
     "id": "JS_008",
@@ -213,7 +230,8 @@
       "A boolean only",
       "The original array reversed"
     ],
-    "correctAnswer": "A new array of matching items"
+    "correctAnswer": "A new array of matching items",
+    "explanation": "\"A new array of matching items\" is the standard ECMAScript specification behavior for this JavaScript feature."
   },
   {
     "id": "JS_009",
@@ -225,7 +243,8 @@
       "0",
       "{}"
     ],
-    "correctAnswer": "0"
+    "correctAnswer": "0",
+    "explanation": "\"0\" is the standard ECMAScript specification behavior for this JavaScript feature."
   },
   {
     "id": "JS_010",
@@ -237,7 +256,8 @@
       "A built-in loop",
       "A CSS selector"
     ],
-    "correctAnswer": "A shorter syntax for writing functions"
+    "correctAnswer": "A shorter syntax for writing functions",
+    "explanation": "\"A shorter syntax for writing functions\" is the standard ECMAScript specification behavior for this JavaScript feature."
   },
   {
     "id": "PY_001",
@@ -249,7 +269,8 @@
       "function",
       "lambda"
     ],
-    "correctAnswer": "def"
+    "correctAnswer": "def",
+    "explanation": "In Python, \"def\" aligns with the standard PEP 8 and Python Language Reference specifications."
   },
   {
     "id": "PY_002",
@@ -261,7 +282,8 @@
       "range object",
       "set"
     ],
-    "correctAnswer": "range object"
+    "correctAnswer": "range object",
+    "explanation": "In Python, \"range object\" aligns with the standard PEP 8 and Python Language Reference specifications."
   },
   {
     "id": "PY_003",
@@ -273,7 +295,8 @@
       "<!--",
       "/*"
     ],
-    "correctAnswer": "#"
+    "correctAnswer": "#",
+    "explanation": "In Python, \"#\" aligns with the standard PEP 8 and Python Language Reference specifications."
   },
   {
     "id": "PY_004",
@@ -285,7 +308,8 @@
       "tuple",
       "dictionary"
     ],
-    "correctAnswer": "dictionary"
+    "correctAnswer": "dictionary",
+    "explanation": "In Python, \"dictionary\" aligns with the standard PEP 8 and Python Language Reference specifications."
   },
   {
     "id": "PY_005",
@@ -297,7 +321,8 @@
       "The last item in a list",
       "A lowercase version of a string"
     ],
-    "correctAnswer": "The length of an object"
+    "correctAnswer": "The length of an object",
+    "explanation": "In Python, \"The length of an object\" aligns with the standard PEP 8 and Python Language Reference specifications."
   },
   {
     "id": "PY_006",
@@ -309,7 +334,8 @@
       "loop",
       "iterate"
     ],
-    "correctAnswer": "for"
+    "correctAnswer": "for",
+    "explanation": "In Python, \"for\" aligns with the standard PEP 8 and Python Language Reference specifications."
   },
   {
     "id": "PY_007",
@@ -321,7 +347,8 @@
       "string",
       "float"
     ],
-    "correctAnswer": "string"
+    "correctAnswer": "string",
+    "explanation": "In Python, \"string\" aligns with the standard PEP 8 and Python Language Reference specifications."
   },
   {
     "id": "PY_008",
@@ -333,7 +360,8 @@
       "try",
       "error"
     ],
-    "correctAnswer": "try"
+    "correctAnswer": "try",
+    "explanation": "In Python, \"try\" aligns with the standard PEP 8 and Python Language Reference specifications."
   },
   {
     "id": "PY_009",
@@ -345,7 +373,8 @@
       "Removes the first item",
       "Converts the list to a tuple"
     ],
-    "correctAnswer": "Adds an item to the end"
+    "correctAnswer": "Adds an item to the end",
+    "explanation": "In Python, lists are mutable sequences while tuples are immutable sequences."
   },
   {
     "id": "PY_010",
@@ -357,7 +386,8 @@
       "None",
       "empty"
     ],
-    "correctAnswer": "None"
+    "correctAnswer": "None",
+    "explanation": "In Python, \"None\" aligns with the standard PEP 8 and Python Language Reference specifications."
   },
   {
     "id": "MERN_001",
@@ -369,7 +399,8 @@
       "Middleware",
       "Module"
     ],
-    "correctAnswer": "MongoDB"
+    "correctAnswer": "MongoDB",
+    "explanation": "In the MERN stack (MongoDB, Express, React, Node), \"MongoDB\" ensures scalable, decoupled full-stack architecture."
   },
   {
     "id": "MERN_002",
@@ -381,7 +412,8 @@
       "To compile JSX into JavaScript",
       "To replace MongoDB queries automatically"
     ],
-    "correctAnswer": "To handle server-side routing and APIs"
+    "correctAnswer": "To handle server-side routing and APIs",
+    "explanation": "In the MERN stack (MongoDB, Express, React, Node), \"To handle server-side routing and APIs\" ensures scalable, decoupled full-stack architecture."
   },
   {
     "id": "MERN_003",
@@ -393,7 +425,8 @@
       "React",
       "Node.js"
     ],
-    "correctAnswer": "React"
+    "correctAnswer": "React",
+    "explanation": "In the MERN stack (MongoDB, Express, React, Node), \"React\" ensures scalable, decoupled full-stack architecture."
   },
   {
     "id": "MERN_004",
@@ -405,7 +438,8 @@
       "CSS preprocessor",
       "Browser testing library"
     ],
-    "correctAnswer": "Runtime for the backend server"
+    "correctAnswer": "Runtime for the backend server",
+    "explanation": "In the MERN stack (MongoDB, Express, React, Node), \"Runtime for the backend server\" ensures scalable, decoupled full-stack architecture."
   },
   {
     "id": "MERN_005",
@@ -417,7 +451,8 @@
       "Styling Express routes",
       "Bundling frontend assets"
     ],
-    "correctAnswer": "Managing MongoDB data models"
+    "correctAnswer": "Managing MongoDB data models",
+    "explanation": "In the MERN stack (MongoDB, Express, React, Node), \"Managing MongoDB data models\" ensures scalable, decoupled full-stack architecture."
   },
   {
     "id": "MERN_006",
@@ -429,7 +464,8 @@
       "They automatically host the app",
       "They style components with classes"
     ],
-    "correctAnswer": "They allow frontend and backend communication"
+    "correctAnswer": "They allow frontend and backend communication",
+    "explanation": "In the MERN stack (MongoDB, Express, React, Node), \"They allow frontend and backend communication\" ensures scalable, decoupled full-stack architecture."
   },
   {
     "id": "MERN_007",
@@ -441,7 +477,8 @@
       "node package",
       "express install"
     ],
-    "correctAnswer": "npm install"
+    "correctAnswer": "npm install",
+    "explanation": "In the MERN stack (MongoDB, Express, React, Node), \"npm install\" ensures scalable, decoupled full-stack architecture."
   },
   {
     "id": "MERN_008",
@@ -453,7 +490,8 @@
       "Compiling JSX files",
       "Generating JWT secrets"
     ],
-    "correctAnswer": "Cross-origin request control between frontend and backend"
+    "correctAnswer": "Cross-origin request control between frontend and backend",
+    "explanation": "In the MERN stack (MongoDB, Express, React, Node), \"Cross-origin request control between frontend and backend\" ensures scalable, decoupled full-stack architecture."
   },
   {
     "id": "MERN_009",
@@ -465,7 +503,8 @@
       "They build CSS automatically",
       "They remove the need for authentication"
     ],
-    "correctAnswer": "They let you hide config values like database URIs"
+    "correctAnswer": "They let you hide config values like database URIs",
+    "explanation": "In the MERN stack (MongoDB, Express, React, Node), \"They let you hide config values like database URIs\" ensures scalable, decoupled full-stack architecture."
   },
   {
     "id": "MERN_010",
@@ -477,7 +516,8 @@
       "Generating database tables",
       "Rendering React components"
     ],
-    "correctAnswer": "Creating authentication tokens"
+    "correctAnswer": "Creating authentication tokens",
+    "explanation": "In the MERN stack (MongoDB, Express, React, Node), \"Creating authentication tokens\" ensures scalable, decoupled full-stack architecture."
   },
   {
     "id": "CSS_001",
@@ -489,7 +529,8 @@
       "gap",
       "border-spacing"
     ],
-    "correctAnswer": "margin"
+    "correctAnswer": "margin",
+    "explanation": "\"margin\" represents the standard CSS box model and layout specification behavior."
   },
   {
     "id": "CSS_002",
@@ -501,7 +542,8 @@
       "Automatic image compression",
       "JavaScript event handling"
     ],
-    "correctAnswer": "Flexible layout alignment"
+    "correctAnswer": "Flexible layout alignment",
+    "explanation": "Flexbox is a 1D layout model providing distribution of space and alignment along main and cross axes."
   },
   {
     "id": "CSS_003",
@@ -513,7 +555,8 @@
       "color",
       "text-shadow"
     ],
-    "correctAnswer": "color"
+    "correctAnswer": "color",
+    "explanation": "\"color\" represents the standard CSS box model and layout specification behavior."
   },
   {
     "id": "CSS_004",
@@ -525,7 +568,8 @@
       "radius-size",
       "curve"
     ],
-    "correctAnswer": "border-radius"
+    "correctAnswer": "border-radius",
+    "explanation": "\"border-radius\" represents the standard CSS box model and layout specification behavior."
   },
   {
     "id": "CSS_005",
@@ -537,7 +581,8 @@
       "Makes the element flex automatically",
       "Hides the element from the DOM"
     ],
-    "correctAnswer": "Positions an element relative to its nearest positioned ancestor"
+    "correctAnswer": "Positions an element relative to its nearest positioned ancestor",
+    "explanation": "\"Positions an element relative to its nearest positioned ancestor\" represents the standard CSS box model and layout specification behavior."
   },
   {
     "id": "CSS_006",
@@ -549,7 +594,8 @@
       "rem",
       "%"
     ],
-    "correctAnswer": "rem"
+    "correctAnswer": "rem",
+    "explanation": "\"rem\" represents the standard CSS box model and layout specification behavior."
   },
   {
     "id": "CSS_007",
@@ -561,7 +607,8 @@
       "Horizontal spacing",
       "Animation duration"
     ],
-    "correctAnswer": "Stacking order of overlapping elements"
+    "correctAnswer": "Stacking order of overlapping elements",
+    "explanation": "\"Stacking order of overlapping elements\" represents the standard CSS box model and layout specification behavior."
   },
   {
     "id": "CSS_008",
@@ -573,7 +620,8 @@
       "element-color",
       "fill"
     ],
-    "correctAnswer": "background-color"
+    "correctAnswer": "background-color",
+    "explanation": "\"background-color\" represents the standard CSS box model and layout specification behavior."
   },
   {
     "id": "CSS_009",
@@ -585,7 +633,8 @@
       "Rounds corners",
       "Adds a shadow"
     ],
-    "correctAnswer": "Controls alignment along the main axis"
+    "correctAnswer": "Controls alignment along the main axis",
+    "explanation": "Flexbox is a 1D layout model providing distribution of space and alignment along main and cross axes."
   },
   {
     "id": "CSS_010",
@@ -597,7 +646,8 @@
       "card[]",
       "*card"
     ],
-    "correctAnswer": ".card"
+    "correctAnswer": ".card",
+    "explanation": "\".card\" represents the standard CSS box model and layout specification behavior."
   },
   {
     "id": "TAILWIND_001",
@@ -609,7 +659,8 @@
       "A backend API toolkit",
       "A browser-only database"
     ],
-    "correctAnswer": "A utility-first approach to styling"
+    "correctAnswer": "A utility-first approach to styling",
+    "explanation": "Tailwind CSS uses utility-first classes where \"A utility-first approach to styling\" maps directly to the corresponding CSS rule."
   },
   {
     "id": "TAILWIND_002",
@@ -621,7 +672,8 @@
       "px-4",
       "pt-4"
     ],
-    "correctAnswer": "px-4"
+    "correctAnswer": "px-4",
+    "explanation": "Tailwind CSS uses utility-first classes where \"px-4\" maps directly to the corresponding CSS rule."
   },
   {
     "id": "TAILWIND_003",
@@ -633,7 +685,8 @@
       "weight-700",
       "bold-text"
     ],
-    "correctAnswer": "font-bold"
+    "correctAnswer": "font-bold",
+    "explanation": "Tailwind CSS uses utility-first classes where \"font-bold\" maps directly to the corresponding CSS rule."
   },
   {
     "id": "TAILWIND_004",
@@ -645,7 +698,8 @@
       "content-center",
       "self-center"
     ],
-    "correctAnswer": "items-center"
+    "correctAnswer": "items-center",
+    "explanation": "Tailwind CSS uses utility-first classes where \"items-center\" maps directly to the corresponding CSS rule."
   },
   {
     "id": "TAILWIND_005",
@@ -657,7 +711,8 @@
       "border-round",
       "curve-lg"
     ],
-    "correctAnswer": "rounded-lg"
+    "correctAnswer": "rounded-lg",
+    "explanation": "Tailwind CSS uses utility-first classes where \"rounded-lg\" maps directly to the corresponding CSS rule."
   },
   {
     "id": "TAILWIND_006",
@@ -669,7 +724,8 @@
       "They fetch styles from a CDN",
       "They disable mobile styles"
     ],
-    "correctAnswer": "They apply styles at a specific breakpoint and above"
+    "correctAnswer": "They apply styles at a specific breakpoint and above",
+    "explanation": "Tailwind CSS uses utility-first classes where \"They apply styles at a specific breakpoint and above\" maps directly to the corresponding CSS rule."
   },
   {
     "id": "TAILWIND_007",
@@ -681,7 +737,8 @@
       "flex",
       "block"
     ],
-    "correctAnswer": "flex"
+    "correctAnswer": "flex",
+    "explanation": "Tailwind CSS uses utility-first classes where \"flex\" maps directly to the corresponding CSS rule."
   },
   {
     "id": "TAILWIND_008",
@@ -693,7 +750,8 @@
       "font-white",
       "color-white"
     ],
-    "correctAnswer": "text-white"
+    "correctAnswer": "text-white",
+    "explanation": "Tailwind CSS uses utility-first classes where \"text-white\" maps directly to the corresponding CSS rule."
   },
   {
     "id": "TAILWIND_009",
@@ -705,7 +763,8 @@
       "Opacity",
       "Border thickness"
     ],
-    "correctAnswer": "Spacing between grid or flex children"
+    "correctAnswer": "Spacing between grid or flex children",
+    "explanation": "Tailwind CSS uses utility-first classes where \"Spacing between grid or flex children\" maps directly to the corresponding CSS rule."
   },
   {
     "id": "TAILWIND_010",
@@ -717,6 +776,7 @@
       "none",
       "hidden"
     ],
-    "correctAnswer": "hidden"
+    "correctAnswer": "hidden",
+    "explanation": "Tailwind CSS uses utility-first classes where \"hidden\" maps directly to the corresponding CSS rule."
   }
 ]
