@@ -325,7 +325,7 @@ const QuizContextProvider = ({ children }) => {
         handleLogout,
         handleregister,
         handleLogin,
-      }}
+        }}
     >
       {children}
     </QuizContext.Provider>

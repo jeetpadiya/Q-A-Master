@@ -64,6 +64,18 @@ const NavBar = () => {
 
         {/* Actions */}
         <div className="flex items-center gap-2 sm:gap-2.5">
+          {/* Spot the Bug Mode Link */}
+          <button
+            onClick={() => {
+              playTactilePop();
+              navigate('/spot-the-bug');
+            }}
+            className="hidden md:flex items-center gap-1.5 rounded-lg border border-rose-900/40 bg-rose-950/20 px-2.5 py-1.5 text-xs font-mono text-rose-300 hover:bg-rose-950/40 hover:border-rose-700/60 transition"
+          >
+            <span>🐞</span>
+            <span>Spot the Bug</span>
+          </button>
+
           {/* Sound Toggle */}
           <button
             onClick={toggleSound}

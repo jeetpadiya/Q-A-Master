@@ -48,4 +48,18 @@ export const submitAdaptiveAnswerApi = (payload) =>
 export const getAdaptiveHistoryApi = () =>
   api.get("/api/adaptive/history");
 
+// Spot The Bug Mode APIs
+export const getSpotTheBugTracksApi = () =>
+  api.get("/api/spot-the-bug/tracks");
+
+export const getSpotTheBugChallengeApi = (params) =>
+  api.get("/api/spot-the-bug/challenge", { params });
+
+export const verifySpotTheBugAnswerApi = (payload) =>
+  api.post("/api/spot-the-bug/verify", payload);
+
+// Senior Architect Consultation API
+export const askSeniorArchitectApi = (payload) =>
+  api.post("/api/senior-architect/explain", payload);
+
 export default api;

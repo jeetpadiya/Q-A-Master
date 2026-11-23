@@ -4,6 +4,7 @@ import { QuizContext } from '../context/QuizContext';
 import { startAdaptiveSessionApi, submitAdaptiveAnswerApi } from '../services/api';
 import { AdaptiveGauge, getLevelTier } from '../components/AdaptiveGauge';
 import { TechIcon } from '../components/TechIcon';
+import SeniorArchitectDrawer from '../components/SeniorArchitectDrawer';
 import { playTactilePop, playSuccessChime } from '../utils/sound';
 import { toast } from 'sonner';
 
@@ -18,6 +19,14 @@ const AdaptiveQuiz = () => {
   const [feedback, setFeedback] = useState(null);
   const [isCompleted, setIsCompleted] = useState(false);
   const [completionData, setCompletionData] = useState(null);
+  const [architectContext, setArchitectContext] = useState(null);
+  const [isArchitectOpen, setIsArchitectOpen] = useState(false);
+
+  const openArchitect = (ctx) => {
+    playTactilePop();
+    setArchitectContext(ctx);
+    setIsArchitectOpen(true);
+  };
 
   const initSession = useCallback(async () => {
     setIsLoading(true);
@@ -257,9 +266,26 @@ const AdaptiveQuiz = () => {
                   </div>
 
                   {ans.explanation && (
-                    <div className="mt-3 p-2.5 rounded bg-zinc-900 border border-zinc-800 text-xs text-zinc-400 leading-relaxed font-sans">
-                      <span className="font-mono text-zinc-300 font-semibold mr-1">Concept:</span>
-                      {ans.explanation}
+                    <div className="mt-3 p-2.5 rounded bg-zinc-900 border border-zinc-800 text-xs text-zinc-400 leading-relaxed font-sans flex items-start justify-between gap-3">
+                      <div>
+                        <span className="font-mono text-zinc-300 font-semibold mr-1">Concept:</span>
+                        {ans.explanation}
+                      </div>
+                      <button
+                        onClick={() =>
+                          openArchitect({
+                            category: selectedCategory,
+                            topic: ans.concept,
+                            question: ans.question,
+                            userAnswer: ans.selectedAnswer,
+                            correctAnswer: ans.correctAnswer,
+                            explanation: ans.explanation,
+                          })
+                        }
+                        className="shrink-0 px-2.5 py-1 rounded border border-zinc-700 bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-mono text-[11px] transition flex items-center gap-1"
+                      >
+                        <span>🔍 Ask Architect</span>
+                      </button>
                     </div>
                   )}
                 </div>
@@ -285,16 +311,32 @@ const AdaptiveQuiz = () => {
         {/* Feedback Banner */}
         {feedback && (
           <div
-            className={`p-3 rounded-lg border text-xs leading-relaxed font-mono ${
+            className={`p-3 rounded-lg border text-xs leading-relaxed font-mono flex items-start justify-between gap-3 ${
               feedback.wasCorrect
                 ? 'border-emerald-500/30 bg-emerald-500/5 text-emerald-300'
                 : 'border-rose-500/30 bg-rose-500/5 text-rose-300'
             }`}
           >
-            <span className="font-bold mr-1.5 uppercase">
-              {feedback.wasCorrect ? '✓ Verified:' : '✕ Remediation:'}
-            </span>
-            <span className="font-sans text-zinc-300">{feedback.explanation}</span>
+            <div>
+              <span className="font-bold mr-1.5 uppercase">
+                {feedback.wasCorrect ? '✓ Verified:' : '✕ Remediation:'}
+              </span>
+              <span className="font-sans text-zinc-300">{feedback.explanation}</span>
+            </div>
+            <button
+              onClick={() =>
+                openArchitect({
+                  category: selectedCategory,
+                  topic: currentQuestion?.concept,
+                  question: currentQuestion?.question,
+                  correctAnswer: feedback.correctAnswer,
+                  explanation: feedback.explanation,
+                })
+              }
+              className="shrink-0 px-2.5 py-1 rounded border border-zinc-700/80 bg-zinc-900/90 hover:bg-zinc-800 text-zinc-200 font-mono text-[11px] transition flex items-center gap-1"
+            >
+              <span>🔍 Ask Architect</span>
+            </button>
           </div>
         )}
 
@@ -345,6 +387,12 @@ const AdaptiveQuiz = () => {
           </div>
         )}
       </div>
+
+      <SeniorArchitectDrawer
+        isOpen={isArchitectOpen}
+        onClose={() => setIsArchitectOpen(false)}
+        questionContext={architectContext}
+      />
     </div>
   );
 };

@@ -95,6 +95,17 @@ const Header = () => {
               </button>
 
               <button
+                onClick={() => {
+                  playTactilePop();
+                  navigate('/spot-the-bug');
+                }}
+                className="btn-secondary w-full sm:w-auto flex items-center justify-center gap-2 border-rose-900/40 hover:border-rose-600/60"
+              >
+                <span className="text-rose-400">🐞</span>
+                <span>Spot the Bug</span>
+              </button>
+
+              <button
                 onClick={openModal}
                 className="btn-secondary w-full sm:w-auto"
               >

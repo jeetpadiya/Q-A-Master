@@ -5,6 +5,7 @@ import Landing from './pages/Landing';
 import Dashboard from './pages/Dashboard';
 import Quiz from './pages/Quiz';
 import AdaptiveQuiz from './pages/AdaptiveQuiz';
+import SpotTheBug from './pages/SpotTheBug';
 import Login from './pages/login';
 import Register from './pages/register';
 import { Toaster } from 'sonner';
@@ -25,6 +26,7 @@ const App = () => {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/quiz" element={<Quiz />} />
             <Route path="/adaptive" element={<AdaptiveQuiz />} />
+            <Route path="/spot-the-bug" element={<SpotTheBug />} />
             <Route path="/login" element={<Navigate to="/" replace />} />
             <Route path="/register" element={<Navigate to="/" replace />} />
           </Routes>
