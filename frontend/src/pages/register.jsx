@@ -50,40 +50,40 @@ const Register = () => {
   return (
     <section className="min-h-screen bg-[radial-gradient(circle_at_top,#5b21b6_0%,#13073e_45%,#070114_100%)] px-4 py-10 text-white">
       <div className="mx-auto flex min-h-[calc(100vh-5rem)] max-w-6xl items-center justify-center">
-        <div className="grid w-full overflow-hidden rounded-3xl border border-white/10 bg-white/10 shadow-2xl backdrop-blur-xl md:grid-cols-[1.05fr_0.95fr]">
+        <div className="grid w-full overflow-hidden rounded-2xl border border-white/10 bg-white/10 shadow-2xl backdrop-blur-xl md:grid-cols-[1.05fr_0.95fr]">
           <div className="hidden flex-col justify-between bg-black/20 p-10 md:flex">
             <div>
-              <p className="mb-4 inline-flex rounded-full border border-white/20 px-4 py-1 text-sm font-medium tracking-[0.2em] uppercase text-violet-100">
+              <p className="mb-4 inline-flex rounded-full border border-white/20 px-3.5 py-1 font-mono text-xs font-semibold tracking-widest uppercase text-violet-100">
                 Q-A Master
               </p>
-              <h1 className="max-w-md text-4xl font-bold leading-tight">
+              <h1 className="max-w-md text-3xl font-extrabold leading-tight tracking-tight">
                 Start your quiz journey with a quick account setup.
               </h1>
-              <p className="mt-5 max-w-lg text-base leading-7 text-violet-100/80">
+              <p className="mt-4 max-w-lg text-sm leading-relaxed text-violet-100/80">
                 Create your profile to unlock the question bank, track your
                 progress, and jump straight into the challenge.
               </p>
             </div>
 
-            <div className="space-y-4 rounded-2xl border border-white/10 bg-white/5 p-6">
-              <p className="text-sm uppercase tracking-[0.3em] text-violet-200/80">
+            <div className="space-y-3 rounded-xl border border-white/10 bg-white/5 p-5">
+              <p className="font-mono text-xs uppercase tracking-widest font-semibold text-violet-200/80">
                 What you get
               </p>
-              <div className="space-y-3 text-sm text-slate-100/90">
-                <p>Practice timed rounds with instant feedback.</p>
-                <p>Keep your quiz experience tied to your account.</p>
-                <p>Move from signup to playing in a single step.</p>
+              <div className="space-y-2 text-xs font-medium text-slate-100/90">
+                <p>✓ Practice timed rounds with instant feedback.</p>
+                <p>✓ Earn certificates upon scoring 100%.</p>
+                <p>✓ Move from signup to playing in seconds.</p>
               </div>
             </div>
           </div>
 
           <div className="bg-slate-950/70 p-8 sm:p-10">
             <div className="mx-auto max-w-md">
-              <p className="text-sm font-medium uppercase tracking-[0.25em] text-cyan-300">
+              <p className="font-mono text-xs font-semibold uppercase tracking-widest text-cyan-300">
                 Register
               </p>
-              <h2 className="mt-3 text-3xl font-semibold">Create your account</h2>
-              <p className="mt-3 text-sm leading-6 text-slate-300">
+              <h2 className="mt-2 text-3xl font-extrabold tracking-tight">Create your account</h2>
+              <p className="mt-2 text-sm leading-relaxed text-slate-300">
                 Fill in your details and we&apos;ll sign you in right away.
               </p>
               <p className="mt-2 text-sm text-slate-400">
@@ -93,9 +93,9 @@ const Register = () => {
                 </Link>
               </p>
 
-              <form className="mt-8 space-y-5" onSubmit={handleSubmit}>
+              <form className="mt-8 space-y-4" onSubmit={handleSubmit}>
                 <label className="block">
-                  <span className="mb-2 block text-sm font-medium text-slate-200">
+                  <span className="mb-2 block text-xs font-mono uppercase tracking-wider font-semibold text-slate-300">
                     Full Name
                   </span>
                   <input
@@ -103,13 +103,13 @@ const Register = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    placeholder="Enter your name"
-                    className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition focus:border-cyan-300"
+                    placeholder="e.g. Alex Smith"
+                    className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none transition focus:border-cyan-300"
                   />
                 </label>
 
                 <label className="block">
-                  <span className="mb-2 block text-sm font-medium text-slate-200">
+                  <span className="mb-2 block text-xs font-mono uppercase tracking-wider font-semibold text-slate-300">
                     Email Address
                   </span>
                   <input
@@ -118,12 +118,12 @@ const Register = () => {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="you@example.com"
-                    className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition focus:border-cyan-300"
+                    className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none transition focus:border-cyan-300"
                   />
                 </label>
 
                 <label className="block">
-                  <span className="mb-2 block text-sm font-medium text-slate-200">
+                  <span className="mb-2 block text-xs font-mono uppercase tracking-wider font-semibold text-slate-300">
                     Password
                   </span>
                   <input
@@ -131,17 +131,17 @@ const Register = () => {
                     name="password"
                     value={formData.password}
                     onChange={handleChange}
-                    placeholder="Create a secure password"
-                    className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition focus:border-cyan-300"
+                    placeholder="Create a strong password"
+                    className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none transition focus:border-cyan-300"
                   />
                 </label>
 
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full rounded-2xl bg-cyan-400 px-4 py-3 font-semibold text-slate-950 transition hover:bg-cyan-300 disabled:cursor-not-allowed disabled:opacity-70"
+                  className="w-full rounded-xl bg-cyan-400 px-4 py-3 font-semibold text-sm sm:text-base text-slate-950 transition hover:bg-cyan-300 disabled:cursor-not-allowed disabled:opacity-70 mt-2"
                 >
-                  {isSubmitting ? "Creating account..." : "Register & Continue"}
+                  {isSubmitting ? "Creating account..." : "Create Account →"}
                 </button>
               </form>
             </div>

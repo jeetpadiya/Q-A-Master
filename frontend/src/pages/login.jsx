@@ -48,14 +48,14 @@ const Login = () => {
   return (
     <section className="min-h-screen bg-[radial-gradient(circle_at_top,#155e75_0%,#13073e_50%,#070114_100%)] px-4 py-10 text-white">
       <div className="mx-auto flex min-h-[calc(100vh-5rem)] max-w-6xl items-center justify-center">
-        <div className="grid w-full overflow-hidden rounded-3xl border border-white/10 bg-white/10 shadow-2xl backdrop-blur-xl md:grid-cols-[0.95fr_1.05fr]">
+        <div className="grid w-full overflow-hidden rounded-2xl border border-white/10 bg-white/10 shadow-2xl backdrop-blur-xl md:grid-cols-[0.95fr_1.05fr]">
           <div className="bg-slate-950/70 p-8 sm:p-10">
             <div className="mx-auto max-w-md">
-              <p className="text-sm font-medium uppercase tracking-[0.25em] text-cyan-300">
-                Login
+              <p className="font-mono text-xs font-semibold uppercase tracking-widest text-cyan-300">
+                Account Sign In
               </p>
-              <h2 className="mt-3 text-3xl font-semibold">Welcome back</h2>
-              <p className="mt-3 text-sm leading-6 text-slate-300">
+              <h2 className="mt-2 text-3xl font-extrabold tracking-tight">Welcome back</h2>
+              <p className="mt-2 text-sm leading-relaxed text-slate-300">
                 Sign in to continue your quiz progress and jump back into the challenge.
               </p>
               <p className="mt-2 text-sm text-slate-400">
@@ -67,7 +67,7 @@ const Login = () => {
 
               <form className="mt-8 space-y-5" onSubmit={handleSubmit}>
                 <label className="block">
-                  <span className="mb-2 block text-sm font-medium text-slate-200">
+                  <span className="mb-2 block text-xs font-mono uppercase tracking-wider font-semibold text-slate-300">
                     Email Address
                   </span>
                   <input
@@ -76,12 +76,12 @@ const Login = () => {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="you@example.com"
-                    className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition focus:border-cyan-300"
+                    className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none transition focus:border-cyan-300"
                   />
                 </label>
 
                 <label className="block">
-                  <span className="mb-2 block text-sm font-medium text-slate-200">
+                  <span className="mb-2 block text-xs font-mono uppercase tracking-wider font-semibold text-slate-300">
                     Password
                   </span>
                   <input
@@ -90,44 +90,28 @@ const Login = () => {
                     value={formData.password}
                     onChange={handleChange}
                     placeholder="Enter your password"
-                    className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition focus:border-cyan-300"
+                    className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none transition focus:border-cyan-300"
                   />
                 </label>
 
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full rounded-2xl bg-cyan-400 px-4 py-3 font-semibold text-slate-950 transition hover:bg-cyan-300 disabled:cursor-not-allowed disabled:opacity-70"
+                  className="w-full rounded-xl bg-cyan-400 px-4 py-3 font-semibold text-sm sm:text-base text-slate-950 transition hover:bg-cyan-300 disabled:cursor-not-allowed disabled:opacity-70"
                 >
-                  {isSubmitting ? "Signing in..." : "Login & Continue"}
+                  {isSubmitting ? "Signing in..." : "Sign In →"}
                 </button>
               </form>
             </div>
           </div>
-
           <div className="hidden flex-col justify-between bg-black/20 p-10 md:flex">
             <div>
-              <p className="mb-4 inline-flex rounded-full border border-white/20 px-4 py-1 text-sm font-medium tracking-[0.2em] uppercase text-cyan-100">
+              <p className="font-mono text-xs uppercase tracking-widest font-semibold text-cyan-300 mb-3">
                 Q-A Master
               </p>
-              <h1 className="max-w-md text-4xl font-bold leading-tight">
-                Pick up where you left off and keep the streak going.
-              </h1>
-              <p className="mt-5 max-w-lg text-base leading-7 text-cyan-100/80">
-                Your quiz history, timed rounds, and progress are waiting once
-                you sign back in.
-              </p>
-            </div>
-
-            <div className="space-y-4 rounded-2xl border border-white/10 bg-white/5 p-6">
-              <p className="text-sm uppercase tracking-[0.3em] text-cyan-200/80">
-                Ready to continue?
-              </p>
-              <div className="space-y-3 text-sm text-slate-100/90">
-                <p>Return to your quiz dashboard instantly.</p>
-                <p>Practice with the same clean timed flow.</p>
-                <p>Switch between login and register whenever you need.</p>
-              </div>
+              <h3 className="text-2xl font-bold leading-snug">
+                Track your developer knowledge across tracks.
+              </h3>
             </div>
           </div>
         </div>
